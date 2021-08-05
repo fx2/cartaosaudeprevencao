@@ -1,0 +1,10 @@
+ order = /api/task?order=title,desc
+ like = /api/task?like=title,a
+ where = /api/users?where=id,>,1
+ orWhere = /api/users?orWhere=name,=,Nandao
+ with = /api/users?with=task,post
+groupBy = /api/users?groupBy=id,name
+select = /api/users?select=users.id,name,email
+join = /api/users?join=posts,posts.user_id,users.id,tasks,tasks.user_id,users.id
+leftJoin = /api/users?leftJoin=posts,posts.user_id,users.id,tasks,tasks.user_id,users.id
+rightJoin = /api/users?rightJoin=tasks,tasks.user_id,users.id

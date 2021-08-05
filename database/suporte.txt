@@ -1,0 +1,11 @@
+https://painel.kinghost.com.br
+login: pablo_5651@hotmail.com
+senha: 50415384
+
+login: MUASI25
+senha: cap2021
+
+
+ssh -4 cartaosaudeprevencao@ftp.web36f07.kinghost.net
+senha ssh 
+    rld22cm
