@@ -84,7 +84,7 @@ class User extends Authenticatable
     public function getTokenGalaxPay()
     {
         $token = curl(
-            config('constants.galaxUrl') . 'token',
+            'galaxUrl' . 'token',
             array(
                 'username' => config('constants.galaxId'),
                 'password' => config('constants.galaxHash')

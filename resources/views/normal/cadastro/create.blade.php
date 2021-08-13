@@ -69,32 +69,66 @@
                       </div>
                   </div>
 
-                  <strong class="mt-5 mb-1">Cartão de Cŕedito</strong>
+				  <strong class="mt-5 mb-1">Pagamento</strong>
 
-                  <div class="col-xs-12 col-sm-12 col-md-12" >
-                      <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-                              <input class="field-form" type="text" autocomplete="off" name="cartao_credito[number]" id="cartao_credito_number" placeholder="* Número do cartão" />
-                          </div>
-                          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-                              <input class="field-form" type="text" autocomplete="off" name="cartao_credito[holder]" id="cartao_credito_holder" placeholder="* Nome no cartão" />
-                          </div>
-                          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-                              <input class="field-form" type="text" autocomplete="off" name="cartao_credito[expiresAt]" id="cartao_credito_expiresAt" placeholder="* Validade do cartão (Mês e Ano)" required="required" />
-                          </div>
-                          <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-                              <div class="row">
-                                  <div class="col-xs-12 col-sm-9 col-md-9">
-                                      <input class="field-form" type="text" autocomplete="off" name="cartao_credito[cvv]" id="cartao_credito_cvv" placeholder="* Código de segurança do cartão" required="required" />
-                                  </div>
-                                  <div class="col-xs-12 col-sm-3 col-md-3 botao-enviar">
-                                      <input type="button" name="btn-enviar" class="btn btn-enviar" id="btn-enviar" value=">" />
-                                      <span class="text-primary aguarde_text">Por favor aguarde.</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+				  <div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+						  <div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+							  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								Cartão de Crédito
+							  </button>
+							</h5>
+						  </div>
+					  
+						  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+							<div class="card-body">
+								<div class="card card-body">
+									<div class="col-xs-12 col-sm-12 col-md-12" >
+										<div class="row">
+											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[number]" id="cartao_credito_number" placeholder="* Número do cartão" />
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[holder]" id="cartao_credito_holder" placeholder="* Nome no cartão" />
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[expiresAt]" id="cartao_credito_expiresAt" placeholder="* Validade do cartão (Mês e Ano)" required="required" />
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
+												<div class="row">
+													<div class="col-xs-12 col-sm-9 col-md-9">
+														<input class="field-form" type="text" autocomplete="off" name="cartao_credito[cvv]" id="cartao_credito_cvv" placeholder="* Código de segurança do cartão" required="required" />
+													</div>
+													<div class="col-xs-12 col-sm-3 col-md-3 botao-enviar">
+														<input type="button" name="btn-enviar" class="btn btn-enviar" id="btn-enviar" value=">" />
+														<span class="text-primary aguarde_text">Por favor aguarde.</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						  </div>
+						</div>
+						<div class="card">
+						  <div class="card-header" id="headingTwo">
+							<h5 class="mb-0">
+							  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								Boleto
+							  </button>
+							</h5>
+						  </div>
+						  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+							<div class="card-body">
+							  Gerar o boleto
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
               </div>
               
               <div class="form-group form-check mt-5">
@@ -246,6 +280,7 @@
               _token: '{{csrf_token()}}'
           },
           success: function (response) {
+            console.log(response ,'fuck your ass')
             store(response)
           }, 
           error: function() {
@@ -266,7 +301,9 @@
   });
 
   async function store(response){
+    console.log(response, 666)
     var json_response = JSON.parse(response);
+    console.log(json_response, 888)
     var data = new Date();
     var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
     // console.log(json_response)
@@ -375,6 +412,15 @@
     });
   }
 
+  	$('#myModal').modal('show');
+
+	$('input[type=radio]').click(function() {
+		alert($(this).val());
+	});
+
+  function validarEmail(email){
+    return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
+  }
   function validaCampos(){
     let email = $('#email').val();
     let telefone = $('#telefone').val();

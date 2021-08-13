@@ -19,9 +19,10 @@ class CampanhaController extends Controller
         $this->user = $user;
     }
 
-    public function create(Request $request)
+    public function create(Request $request)    
     {
         $plano = Pricing::find($request->plano);
+
 
         return view('normal.cadastro.create', ['planMyId' => $plano->plainMyId, 'nomePlano' => $plano->title, 'value' => $plano->price]);
     }
