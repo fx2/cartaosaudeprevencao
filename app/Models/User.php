@@ -244,9 +244,9 @@ class User extends Authenticatable
 
         $user->enderecos()->create($request->all()['enderecos']);
 
-        foreach ($galaxy['Subscription']['Transactions'] as $key => $value) {
-            $user->transactions()->create($value);
-        }
+        // foreach ($galaxy['Subscription']['Transactions'] as $key => $value) {
+        //     $user->transactions()->create($value);
+        // }
 
         return $galaxy;
     }
@@ -321,7 +321,7 @@ class User extends Authenticatable
         $phone = removeSymbols($request['telefones']['telefone'], ['-', '(', ')', ' ']);
         $myArr = array(
             "myId" => config('constants.pay_request') . $user->id,
-            "planMyId" => env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611aad66d6f886.65207440",
+            "planMyId" => env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611acd109ea912.57521508",
             "firstPayDayDate" => date('Y-m-d'),
             "mainPaymentMethodId" => "creditcard",
             "Customer" => array(
