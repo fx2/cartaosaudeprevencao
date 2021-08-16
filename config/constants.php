@@ -15,7 +15,8 @@ return [
     'galaxId' => (string) $galaxId,
     'galaxHash' => (string) $galaxHash,
     'galaxUrl' => $galaxUrl,
-    'galaxPlanoBronze' => (string) "pay-602526be3d5cfkass.43389561",
+    // 'galaxPlanoBronze' => (string) "pay-602526be3d5cfkass.43389561",
+    'galaxPlanoBronze' => (string) "pay-611a7937164f87.73052563",
     'galaxPlanoPrata' => (string) "pay-602526be3d5cfkass.43389562",
     'default_password' => '123456',
     

@@ -88,18 +88,18 @@
 									<div class="col-xs-12 col-sm-12 col-md-12" >
 										<div class="row">
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[number]" id="cartao_credito_number" placeholder="* Número do cartão" />
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[number]" value="4111 1111 1111 1111" id="cartao_credito_number" placeholder="* Número do cartão" />
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[holder]" id="cartao_credito_holder" placeholder="* Nome no cartão" />
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[holder]" value="JOAO J J DA SILVA" id="cartao_credito_holder" placeholder="* Nome no cartão" />
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[expiresAt]" id="cartao_credito_expiresAt" placeholder="* Validade do cartão (Mês e Ano)" required="required" />
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[expiresAt]" value="08/2021" id="cartao_credito_expiresAt" placeholder="* Validade do cartão (Mês e Ano)" required="required" />
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
 												<div class="row">
 													<div class="col-xs-12 col-sm-9 col-md-9">
-														<input class="field-form" type="text" autocomplete="off" name="cartao_credito[cvv]" id="cartao_credito_cvv" placeholder="* Código de segurança do cartão" required="required" />
+														<input class="field-form" type="text" autocomplete="off" name="cartao_credito[cvv]" value="363" id="cartao_credito_cvv" placeholder="* Código de segurança do cartão" required="required" />
 													</div>
 													<div class="col-xs-12 col-sm-3 col-md-3 botao-enviar">
 														<input type="button" name="btn-enviar" class="btn btn-enviar" id="btn-enviar" value=">" />
@@ -123,7 +123,7 @@
 						  </div>
 						  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 							<div class="card-body">
-							  Gerar o boleto
+                <input type="button" name="btn-enviar-boleto" class="btn btn-enviar-boleto" id="btn-enviar-boleto" value="Gerar boleto" />                
 							</div>
 						  </div>
 						</div>
@@ -280,7 +280,7 @@
               _token: '{{csrf_token()}}'
           },
           success: function (response) {
-            console.log(response ,'fuck your ass')
+            console.log(response, 887)
             store(response)
           }, 
           error: function() {
@@ -301,9 +301,7 @@
   });
 
   async function store(response){
-    console.log(response, 666)
     var json_response = JSON.parse(response);
-    console.log(json_response, 888)
     var data = new Date();
     var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
     // console.log(json_response)
@@ -357,7 +355,6 @@
             }
         },
         success: function (response) {
-          // console.log(response, 222)
             if (response == 'chave_igual') {
               Swal.fire({
                 icon: 'error',

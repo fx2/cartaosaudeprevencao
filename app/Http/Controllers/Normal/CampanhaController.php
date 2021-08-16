@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pricing;
 use App\Models\User;
 use App\Traits\CrudControllerTrait;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class CampanhaController extends Controller
@@ -22,7 +23,6 @@ class CampanhaController extends Controller
     public function create(Request $request)    
     {
         $plano = Pricing::find($request->plano);
-
 
         return view('normal.cadastro.create', ['planMyId' => $plano->plainMyId, 'nomePlano' => $plano->title, 'value' => $plano->price]);
     }

@@ -25,7 +25,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Route::get('campanha-boleto-token', 'App\Http\Controllers\Normal\CampanhaController@salvaBoleto')->name('campanha-boleto-token');
+// Route::post('campanha-boleto', 'App\Http\Controllers\Normal\CampanhaController@salvaBoleto')->name('campanha-boleto');
 Route::resource('campanha', App\Http\Controllers\Normal\CampanhaController::class);
+
 Route::resource('pricing', App\Http\Controllers\Normal\PricingController::class);
 
 Route::resource('textocontrato', App\Http\Controllers\Normal\MediaText\TextoContratoController::class);
