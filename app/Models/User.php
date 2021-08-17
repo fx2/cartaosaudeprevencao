@@ -130,7 +130,7 @@ class User extends Authenticatable
         $url = 'https://api.sandbox.cloud.galaxpay.com.br/v2/subscriptions';
         $POSTVARS = array(
             "myId"=> "pay-".$string,
-            "planMyId"=> env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611bd312cc20f4.66488865",
+            "planMyId"=> env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611bf30508e8d7.43719626",
             "firstPayDayDate"=> date('Y-m-d'),
             "additionalInfo"=> "Informação adicional verificar",
             "mainPaymentMethodId"=> "boleto",
@@ -158,7 +158,7 @@ class User extends Authenticatable
             "PaymentMethodBoleto"=> array(
                 "fine"=> 100,
                 "interest"=> 200,
-                "instructions"=> "Lorem ipsum dolor sit amet.",
+                "instructions"=> "Pague em casas lotéricas ou via PIX.",
                 "deadlineDays"=> 1
             )
         );
@@ -174,11 +174,10 @@ class User extends Authenticatable
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
         curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);  
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); 
-        $Rec_Data = curl_exec($ch);
+        $response = curl_exec($ch);
         curl_close($ch);
 
-        $data = json_decode($response, true);
-        return $data['Subscription']['paymentLink'];
+        return $response;
     }
 
     public function cadastroCampanha($request)
@@ -258,39 +257,34 @@ class User extends Authenticatable
 
         $planosSaudes = $request->all()['planosSaudes'];
 
-        $res = $this->buildJsonTOSendPostPlainBoleto($user, $request, $planosSaudes);
-
-        $gal = jwt_request(
-            config('constants.galaxUrl') . 'subscriptions',
-            $request->access_token,
-            $res
-        );
-
-        $galaxy = json_decode($gal, true);
-    
-        if (!isset($galaxy['Subscription']))
+        $boleto = $this->getTokenGalaxPayBoleto($request);
+        $bol = json_decode($boleto, true);
+        
+        if (!isset($bol['Subscription']))
             return 'chave_igual';
 
         $useragain = User::where('id', $user->id)->first();
-        $useragain->pay_customer = $galaxy['Subscription']['Customer']['myId'];
+        $useragain->pay_customer = $bol['Subscription']['Customer']['myId'];
         $useragain->save();
 
         if (!is_null($request->all()['empresas']['name']))
             $user->empresas()->create($request->all()['empresas']);
 
-        $planosSaudes['pay_request'] = $res['myId'];  
-        $planosSaudes['periodicity'] = $galaxy['Subscription']['periodicity'];
-        $planosSaudes['planGalaxPayId'] = $galaxy['Subscription']['planGalaxPayId'];
+        $planosSaudes['pay_request'] = $bol['Subscription']['myId'];  
+        $planosSaudes['periodicity'] = $bol['Subscription']['periodicity'];
+        $planosSaudes['planGalaxPayId'] = $bol['Subscription']['planGalaxPayId'];
         
         $user->planosSaudes()->create($planosSaudes);
         
-        $boleto['fine'] = 100;
-        $boleto['interest'] = 200;
-        $boleto['instructions'] = 'teste';
-        $boleto['deadlineDays'] = 1;
-        $boleto['discont_qtdDaysBeforePayDay'] = 1;
+        $boletos['fine'] = 100;
+        $boletos['interest'] = 200;
+        $boletos['instructions'] = 'teste';
+        $boletos['deadlineDays'] = 1;
+        $boletos['discont_qtdDaysBeforePayDay'] = 1;
+        $boletos['discont_type'] = '';
+        $boletos['discont_value'] = 0;
 
-        $user->paymentMethodBoletos()->create($boleto);
+        $user->paymentMethodBoletos()->create($boletos);
 
         $user->telefones()->create($request->all()['telefones']);
 
@@ -300,7 +294,7 @@ class User extends Authenticatable
         //     $user->transactions()->create($value);
         // }
 
-        return $galaxy;
+        return $bol;
     }
 
     public function buildJsonTOSendPostPlain($user, $request, $planosSaudes)

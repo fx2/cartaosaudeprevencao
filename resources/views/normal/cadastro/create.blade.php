@@ -423,43 +423,10 @@
       var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
 
       $.ajax({
-          type: "POST",
-          url: "{{ route('campanha-boleto-token', 'qualquercoisa') }}",
+          type: "GET",
+          url: "{{ route('campanha.show', 'qualquercoisa') }}",
           data: {
-              _token: '{{csrf_token()}}',
-              users: {
-                email: $('#email').val(),
-                name: $('#name').val(),
-                document: $('#document').val(),
-              },
-              
-              telefones: {
-                telefone: $('#telefone').val(),
-              },
-
-              empresas: {
-                name: $('#empresa').val(),
-                cnpj: $('#cnpj').val(),
-              },
-
-              planosSaudes: {
-                planMyId: @json($planMyId),
-                nomePlano: @json($nomePlano),
-                value: @json($value),
-                qtd_vidas: $('#qtd_vidas').val(),
-                firstPayDayDate: today_date,
-                mainPaymentMethodId: 'boleto'
-              },
-
-              enderecos: {
-                zipCode: $('#endereco_zipCode').val(),
-                state: $('#endereco_state').val(),
-                city: $('#endereco_city').val(),
-                street: $('#endereco_street').val(),
-                number: $('#endereco_number').val(),
-                complement: $('#endereco_complement').val(),
-                neighborhood: $('#endereco_neighborhood').val(),
-              },
+              _token: '{{csrf_token()}}'
           },
           success: function (response) {
             storeBoleto(response)
@@ -514,7 +481,7 @@
               value: @json($value),
               qtd_vidas: $('#qtd_vidas').val(),
               firstPayDayDate: today_date,
-              mainPaymentMethodId: 'creditcard'
+              mainPaymentMethodId: 'boleto'
             },
 
             enderecos: {
@@ -526,13 +493,6 @@
               complement: $('#endereco_complement').val(),
               neighborhood: $('#endereco_neighborhood').val(),
             },
-
-            cartao: {
-              cartao_credito_number: $('#cartao_credito_number').val(),
-              cartao_credito_holder: $('#cartao_credito_holder').val(),
-              cartao_credito_expiresAt: $('#cartao_credito_expiresAt').val(),
-              cartao_credito_cvv: $('#cartao_credito_cvv').val(),
-            }
         },
         success: function (response) {
             if (response == 'chave_igual') {
@@ -560,6 +520,10 @@
             }
 
             else {
+              setTimeout(function() {
+                window.open(response.Subscription.Transactions[0].Boleto.pdf, '_blank');
+              }, 3000);
+             
               Swal.fire({
                 icon: 'success',
                 title: '',
@@ -582,7 +546,7 @@
           });
         },
         complete: function() {
-            $('#btn-enviar').attr("disabled", false);
+            $('#btn-enviar-boleto').attr("disabled", false);
             hideLoading();
             $('.aguarde_text').hide();
         }
