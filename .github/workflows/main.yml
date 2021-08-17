@@ -15,5 +15,6 @@ jobs:
         host: ${{ secrets.host }}
         username: ${{ secrets.user }}
         password: ${{ secrets.pass }}
+        port: ${{ secrets.port }}
         script: |
-          pwd
+          ls
