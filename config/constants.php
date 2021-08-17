@@ -17,7 +17,7 @@ return [
     'galaxUrl' => $galaxUrl,
     'galaxPlanoBronze' => (string) "pay-602526be3d5cfkass.43389561",
     'galaxPlanoPrata' => (string) "pay-602526be3d5cfkass.43389562",
-    'galaxPlanoBronzePlus' => (string) "pay-602526be3d5cfkass.43389562",
+    'galaxPlanoBronzePlus' => (string) "pay-602526be3d5cfkass.43389564",
     'default_password' => '123456',
     
     'idTextoContrato' => 1,

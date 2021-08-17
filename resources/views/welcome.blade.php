@@ -332,10 +332,10 @@
         </div>
 
     		<div class="row">
-    			<div class="col-md-6 col-lg-6 ftco-animate">
+    			<div class="col-md-6 col-lg-6">
 	          <div class="block-7">
 	            <div class="text-center">
-	            	<span class="excerpt d-block">Bronze</span>
+	            	<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Bronze</span>
 	            <span class="price"><sup>R$</sup> <span class="number">27,99</span> <sub>/mês</sub></span>	            
 	            <ul class="pricing-text mb-5 text-left">
 	            	<li><span class="fa fa-check mr-2"></span>Consultas médicas</li>
@@ -360,7 +360,7 @@
 	        <div id="saude" class="col-md-6 col-lg-6 ftco-animate">
 	          <div class="block-7">
 	            <div class="text-center">
-            	<span class="excerpt d-block">Prata</span>
+            	<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Prata</span>
 	            <span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
 	            
 	            <ul class="pricing-text mb-5 text-left">
@@ -380,10 +380,10 @@
 	            </div>
 	          </div>
 			</div>	
-			<div id="saude" class="col-md-6 col-lg-6 ftco-animate">
+			<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
 				<div class="block-7">
 				  <div class="text-center">
-				  <span class="excerpt d-block">BRONZE PLUS </span>
+				  <span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">BRONZE PLUS </span>
 				  <span class="price"><sup>R$</sup> <span class="number">37,99</span> <sub>/mês</sub></span>
 				  <span class="price"> <span class="">Toda cobertura do PLANO BRONZE +</span></span>
 				  

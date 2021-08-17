@@ -45,14 +45,11 @@
         <div id="loading-content"></div>
     </section>
 @yield('content')
-
 @include('layouts.fragments.footer')
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    {{-- <script src="{{ asset('js/popper.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
     <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
     <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
@@ -65,51 +62,66 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/sweetalert.js') }}"></script>
 
+    {{-- <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script> --}}
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script> --}}
 
     <!--Bootstrap Core-->
-    <script src="{{ asset('js/popper.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
 
     <!--to view items on reach-->
-    <script src="{{ asset('js/jquery.appear.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery.appear.js') }}"></script> --}}
 
     <!--Equal-Heights-->
-    <script src="{{ asset('js/jquery.matchHeight-min.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery.matchHeight-min.js') }}"></script> --}}
 
     <!--Owl Slider-->
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/owl.carousel.min.js') }}"></script> --}}
 
     <!--number counters-->
-    <script src="{{ asset('js/jquery-countTo.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery-countTo.js') }}"></script> --}}
 
     <!--Parallax Background-->
-    <script src="{{ asset('js/parallaxie.js') }}"></script>
+    {{-- <script src="{{ asset('js/parallaxie.js') }}"></script> --}}
 
     <!--Cubefolio Gallery-->
-    <script src="{{ asset('js/jquery.cubeportfolio.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery.cubeportfolio.min.js') }}"></script> --}}
 
     <!--FancyBox popup-->
-    <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script> --}}
 
     <!-- Video Background-->
-    <script src="{{ asset('js/jquery.background-video.js') }}"></script>
+    {{-- <script src="{{ asset('js/jquery.background-video.js') }}"></script> --}}
 
     <!--TypeWriter-->
-    <script src="{{ asset('js/typewriter.js') }}"></script>
+    {{-- <script src="{{ asset('js/typewriter.js') }}"></script> --}}
 
     <!--Particles-->
-    <script src="{{ asset('js/particles.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/particles.min.js') }}"></script> --}}
 
     <!--WOw animations-->
-    <script src="{{ asset('js/wow.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/wow.min.js') }}"></script> --}}
 
     <!--Revolution SLider-->
-    <script src="{{ asset('js/revolution/jquery.themepunch.tools.min.js') }}"></script>
-    <script src="{{ asset('js/revolution/jquery.themepunch.revolution.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/revolution/jquery.themepunch.tools.min.js') }}"></script>
+    <script src="{{ asset('js/revolution/jquery.themepunch.revolution.min.js') }}"></script> --}}
     <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-    <script src="{{ asset('js/revolution/extensions/revolution.extension.actions.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/revolution/extensions/revolution.extension.actions.min.js') }}"></script>
     <script src="{{ asset('js/revolution/extensions/revolution.extension.carousel.min.js') }}"></script>
     <script src="{{ asset('js/revolution/extensions/revolution.extension.kenburn.min.js') }}"></script>
     <script src="{{ asset('js/revolution/extensions/revolution.extension.layeranimation.min.js') }}"></script>
@@ -117,7 +129,7 @@
     <script src="{{ asset('js/revolution/extensions/revolution.extension.navigation.min.js') }}"></script>
     <script src="{{ asset('js/revolution/extensions/revolution.extension.parallax.min.js') }}"></script>
     <script src="{{ asset('js/revolution/extensions/revolution.extension.slideanims.min.js') }}"></script>
-    <script src="{{ asset('js/revolution/extensions/revolution.extension.video.min.js') }}"></script>
+    <script src="{{ asset('js/revolution/extensions/revolution.extension.video.min.js') }}"></script> --}}
 
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('js/campanha.js') }}"></script>
