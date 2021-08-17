@@ -16,5 +16,4 @@ jobs:
         username: ${{ secrets.user }}
         password: ${{ secrets.pass }}
         script: |
-          cd www
           composer install
