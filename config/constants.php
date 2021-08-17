@@ -9,15 +9,15 @@ $galaxHash = env('APP_ENV') === 'production' ? "OfGg7iE05bWlWeO0GoW1W96xI4L10i28
 $galaxUrl = (string)  env('APP_ENV') === 'production' ? "https://api.galaxpay.com.br/v2/" : "https://api.sandbox.cloud.galaxpay.com.br/v2/" ;
 
 return [
-    'pay_request' => 'pay-request-fkass-' . date("d-m-Y") . '-' . $uniqueNumber,
-    'pay_customer' => 'pay-customer-fkass-' . date("d-m-Y") . '-' . $uniqueNumber,
-    'pay_creditcard' => 'pay-custom-creditcard-fkass-' . date("d-m-Y") . '-' . $uniqueNumber,
+    'pay_request' => 'pay-request-' . date("d-m-Y") . '-' . $uniqueNumber,
+    'pay_customer' => 'pay-customer-' . date("d-m-Y") . '-' . $uniqueNumber,
+    'pay_creditcard' => 'pay-custom-creditcard-' . date("d-m-Y") . '-' . $uniqueNumber,
     'galaxId' => (string) $galaxId,
     'galaxHash' => (string) $galaxHash,
     'galaxUrl' => $galaxUrl,
-    // 'galaxPlanoBronze' => (string) "pay-602526be3d5cfkass.43389561",
-    'galaxPlanoBronze' => (string) "pay-611a7937164f87.73052563",
+    'galaxPlanoBronze' => (string) "pay-602526be3d5cfkass.43389561",
     'galaxPlanoPrata' => (string) "pay-602526be3d5cfkass.43389562",
+    'galaxPlanoBronzePlus' => (string) "pay-602526be3d5cfkass.43389562",
     'default_password' => '123456',
     
     'idTextoContrato' => 1,
