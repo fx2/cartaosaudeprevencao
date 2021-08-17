@@ -353,7 +353,9 @@
 	            <a href="{{ url('campanha/cadastrar?plano=1') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
 	            </div>
 	          </div>
-	        </div>
+			</div>
+			
+			      
 
 	        <div id="saude" class="col-md-6 col-lg-6 ftco-animate">
 	          <div class="block-7">
@@ -377,31 +379,41 @@
 	            <a href="{{ url('campanha/cadastrar?plano=2') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
 	            </div>
 	          </div>
-	        </div>	   
-
-	        <div id="saude" class="col-md-6 col-lg-6 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-            	<span class="excerpt d-block">Ouro</span>
-	            <span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
-	            
-	            <ul class="pricing-text mb-5 text-left">
-	            	<li><span class="fa fa-check mr-2"></span>Consultas médicas</li>
-	              	<li><span class="fa fa-check mr-2"></span>Exames de imagem</li>
-	              	<li><span class="fa fa-check mr-2"></span>Exames laboratoriais</li>
-	              	<li><span class="fa fa-check mr-2"></span>Fisioterapia</li>
-	              	<li><span class="fa fa-check mr-2"></span>Dentista</li>
-                  	<li><span class="fa fa-check mr-2"></span>Estética</li>
-                    <li><span class="fa fa-check mr-2"></span>Fonoaudiólogo</li>
-					<li><span class="fa fa-check mr-2"></span>Psicólogo</li>
-					<li><span class="fa fa-check mr-2"></span>Nutricionista</li>
-					<li><span class="fa fa-check mr-2"></span>Aplicativos de videos <br> (Paramount, Noggin Jr, Cartoon Network e TNTsports)</li>
-	            </ul>
-
-	            <a href="{{ url('campanha/cadastrar?plano=3') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
-	            </div>
-	          </div>
-	        </div>	       	        
+			</div>	
+			<div id="saude" class="col-md-6 col-lg-6 ftco-animate">
+				<div class="block-7">
+				  <div class="text-center">
+				  <span class="excerpt d-block">BRONZE PLUS </span>
+				  <span class="price"><sup>R$</sup> <span class="number">37,99</span> <sub>/mês</sub></span>
+				  <span class="price"> <span class="">Toda cobertura do PLANO BRONZE +</span></span>
+				  
+				  <ul class="pricing-text mb-5 text-left">
+					  <li><span class="fa fa-check mr-2"></span>Acupuntura</li>
+					  <li><span class="fa fa-check mr-2"></span>Consultas Médicas </li>
+					  <li><span class="fa fa-check mr-2"></span>Dentista</li>
+					  <li><span class="fa fa-check mr-2"></span>Estética</li>
+					  <li><span class="fa fa-check mr-2"></span>Exames Laboratoriais</li>
+					  <li><span class="fa fa-check mr-2"></span>Fisioterapia</li>
+					  <li><span class="fa fa-check mr-2"></span>Fonoaudiologia</li>
+					  <li><span class="fa fa-check mr-2"></span>Hidroterapia</li>
+					  <li><span class="fa fa-check mr-2"></span>Podologia</li>
+					  <li><span class="fa fa-check mr-2"></span>Psicologia</li>
+					  <li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
+						<li><span class="fa fa-check mr-2"></span>Exames USG/li>
+						<li><span class="fa fa-check mr-2"></span>Exames de Imagem </li>
+						<li><span class="fa fa-check mr-2"></span>1 APP de Entretenimento </li>
+						<li><span class="fa fa-check mr-2"></span>Banco MAGPAY </li>
+						<li><span class="fa fa-check mr-2"></span>Conta Digital </li>
+					  <li><span class="fa fa-check mr-2"></span>2 Consultas por ano de Telemedicina </li>
+					  <li><span class="fa fa-check mr-2"></span>Cartão Visa Internacional </li>
+					  <li><span class="fa fa-check mr-2"></span>Clube de Descontos </li>
+					  <li><span class="fa fa-check mr-2"></span>Assistência Funeral para correntista </li>
+				  </ul>
+  
+				  <a href="{{ url('campanha/cadastrar?plano=3') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
+				  </div>
+				</div>
+			  </div>	    	        
 	      </div>
     	</div>
     </section>
