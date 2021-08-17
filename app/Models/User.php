@@ -125,9 +125,9 @@ class User extends Authenticatable
 
         $positionOne = substr(md5(rand ()), 0, 14);
         $positionTwo = rand(1000000, 9999999);
-       
+        $galaxUrl = (string)  env('APP_ENV') === 'production' ? "https://api.galaxpay.com.br/v2/subscriptions" : "https://api.sandbox.cloud.galaxpay.com.br/v2/subscriptions" ;
         $string = $positionOne.'.'.$positionTwo;
-        $url = 'https://api.sandbox.cloud.galaxpay.com.br/v2/subscriptions';
+
         $POSTVARS = array(
             "myId"=> "pay-".$string,
             "planMyId"=> env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611bf30508e8d7.43719626",
@@ -168,7 +168,7 @@ class User extends Authenticatable
             'Content-Type: application/json'
         );
 
-        $ch = curl_init($url);
+        $ch = curl_init($galaxUrl);
         curl_setopt($ch, CURLOPT_POST ,1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($POSTVARS));
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
