@@ -16,4 +16,4 @@ jobs:
         username: ${{ secrets.user }}
         password: ${{ secrets.pass }}
         script: |
-          composer install
+          pwd
