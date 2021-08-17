@@ -32,8 +32,18 @@ class CampanhaController extends Controller
         return $this->user->getTokenGalaxPay();
     }
 
+    public function getTokenBoleto(Request $request)
+    {
+        return $this->user->getTokenGalaxPayBoleto($request);
+    }
+
     public function store(Request $request)
     {
         return $this->user->cadastroCampanha($request);
+    }
+
+    public function salvaBoleto(Request $request)
+    {
+        return $this->user->cadastroCampanhaBoleto($request);
     }
 }

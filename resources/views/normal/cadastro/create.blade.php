@@ -123,7 +123,7 @@
 						  </div>
 						  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 							<div class="card-body">
-                <input type="button" name="btn-enviar-boleto" class="btn btn-enviar-boleto" id="btn-enviar-boleto" value="Gerar boleto" />                
+                <input type="button" name="btn-enviar-boleto" class="btn btn-success btn-enviar-boleto" id="btn-enviar-boleto" value="Gerar boleto" />                
 							</div>
 						  </div>
 						</div>
@@ -280,7 +280,6 @@
               _token: '{{csrf_token()}}'
           },
           success: function (response) {
-            console.log(response, 887)
             store(response)
           }, 
           error: function() {
@@ -299,6 +298,7 @@
           },
       });
   });
+
 
   async function store(response){
     var json_response = JSON.parse(response);
@@ -408,6 +408,187 @@
         }
     });
   }
+
+  $('#btn-enviar-boleto').on('click', function(){
+      
+      valida = validaCampos();
+      if (valida != true) {
+          return;
+      }
+      //Disable our button
+      $('#btn-enviar-boleto').attr("disabled", true);
+      showLoading();
+      $('.aguarde_text').show();
+      var data = new Date();
+      var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
+
+      $.ajax({
+          type: "POST",
+          url: "{{ route('campanha-boleto-token', 'qualquercoisa') }}",
+          data: {
+              _token: '{{csrf_token()}}',
+              users: {
+                email: $('#email').val(),
+                name: $('#name').val(),
+                document: $('#document').val(),
+              },
+              
+              telefones: {
+                telefone: $('#telefone').val(),
+              },
+
+              empresas: {
+                name: $('#empresa').val(),
+                cnpj: $('#cnpj').val(),
+              },
+
+              planosSaudes: {
+                planMyId: @json($planMyId),
+                nomePlano: @json($nomePlano),
+                value: @json($value),
+                qtd_vidas: $('#qtd_vidas').val(),
+                firstPayDayDate: today_date,
+                mainPaymentMethodId: 'boleto'
+              },
+
+              enderecos: {
+                zipCode: $('#endereco_zipCode').val(),
+                state: $('#endereco_state').val(),
+                city: $('#endereco_city').val(),
+                street: $('#endereco_street').val(),
+                number: $('#endereco_number').val(),
+                complement: $('#endereco_complement').val(),
+                neighborhood: $('#endereco_neighborhood').val(),
+              },
+          },
+          success: function (response) {
+            storeBoleto(response)
+          }, 
+          error: function() {
+            Swal.fire({
+              icon: 'error',
+              title: `Ocorreu um erro ao carregar os dados.`,
+              text: '', 
+              onAfterClose: () => {
+                $('#email').focus();
+                return false;
+              }
+            });
+
+            $('#btn-enviar-boleto').attr("disabled", false);
+            $('.aguarde_text').hide();
+          },
+      });
+  });
+  async function storeBoleto(response){
+    var json_response = JSON.parse(response);
+    var data = new Date();
+    var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
+    // console.log(json_response)
+    $.ajax({
+        type: "POST",
+        url: "{{ route('campanha-boleto') }}",
+        data: {
+            _token: '{{csrf_token()}}',
+            access_token: json_response.access_token,
+            token_type: json_response.token_type,
+
+            users: {
+              email: $('#email').val(),
+              name: $('#name').val(),
+              document: $('#document').val(),
+            },
+            
+            telefones: {
+              telefone: $('#telefone').val(),
+            },
+
+            empresas: {
+              name: $('#empresa').val(),
+              cnpj: $('#cnpj').val(),
+            },
+
+            planosSaudes: {
+              planMyId: @json($planMyId),
+              nomePlano: @json($nomePlano),
+              value: @json($value),
+              qtd_vidas: $('#qtd_vidas').val(),
+              firstPayDayDate: today_date,
+              mainPaymentMethodId: 'creditcard'
+            },
+
+            enderecos: {
+              zipCode: $('#endereco_zipCode').val(),
+              state: $('#endereco_state').val(),
+              city: $('#endereco_city').val(),
+              street: $('#endereco_street').val(),
+              number: $('#endereco_number').val(),
+              complement: $('#endereco_complement').val(),
+              neighborhood: $('#endereco_neighborhood').val(),
+            },
+
+            cartao: {
+              cartao_credito_number: $('#cartao_credito_number').val(),
+              cartao_credito_holder: $('#cartao_credito_holder').val(),
+              cartao_credito_expiresAt: $('#cartao_credito_expiresAt').val(),
+              cartao_credito_cvv: $('#cartao_credito_cvv').val(),
+            }
+        },
+        success: function (response) {
+            if (response == 'chave_igual') {
+              Swal.fire({
+                icon: 'error',
+                title: `Ocorreu um erro, tente novamente mais tarde ou entre em contato com o suporte.`,
+                text: '', 
+                onAfterClose: () => {
+                  $('#email').focus();
+                  return false;
+                }
+              });
+            }
+
+            else if (response.error) {
+              Swal.fire({
+                icon: 'error',
+                title: `Ocorreu um erro, tente novamente mais tarde ou entre em contato com o suporte.`,
+                text: '', 
+                onAfterClose: () => {
+                  $('#email').focus();
+                  return false;
+                }
+              });
+            }
+
+            else {
+              Swal.fire({
+                icon: 'success',
+                title: '',
+                text: `O cadastro foi efetuado com sucesso e está sobre analise da nossa equipe de vendas, você receberá um email de confirmação. \n Número do protocolo: ${response.Subscription.Customer.myId}`, 
+                onAfterClose: () => {
+                  window.location.replace("/");
+                }
+              });
+            }
+        }, 
+        error: function() {
+          Swal.fire({
+            icon: 'error',
+            title: `Ocorreu um erro ao carregar os dados.`,
+            text: '', 
+            onAfterClose: () => {
+              $('#email').focus();
+              return false;
+            }
+          });
+        },
+        complete: function() {
+            $('#btn-enviar').attr("disabled", false);
+            hideLoading();
+            $('.aguarde_text').hide();
+        }
+    });
+  }
+  
 
   	$('#myModal').modal('show');
 

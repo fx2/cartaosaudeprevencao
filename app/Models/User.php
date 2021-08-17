@@ -114,80 +114,71 @@ class User extends Authenticatable
         ));
 
         $response = curl_exec($curl);
-
+        
         curl_close($curl);
         return $response;
     }
 
-    public function getTokenGalaxPayBoleto()
+    public function getTokenGalaxPayBoleto($request)
     {    
-        $curl = curl_init();
+        $token = json_decode($this->getTokenGalaxPay(), true);
 
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api.sandbox.cloud.galaxpay.com.br/v2/subscriptions',
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_POSTFIELDS =>'{
-            "myId": "pay-611a980fc24270.70131949",
-            "planMyId": "pay-611a764f0fe594.10589875",
-            "firstPayDayDate": "2021-08-16",
-            "additionalInfo": "Lorem ipsum dolor sit amet.",
-            "mainPaymentMethodId": "boleto",
-            "value": 1000,
-            "Customer": {
-                "myId": "pay-611a892d388f82.01420870",
-                "name": "Lorem ipsum dolor sit amet.",
-                "document": "92857826800",
-                "emails": [
-                    "teste2957email9726@galaxpay.com.br",
-                    "teste2842email5817@galaxpay.com.br"
+        $positionOne = substr(md5(rand ()), 0, 14);
+        $positionTwo = rand(1000000, 9999999);
+       
+        $string = $positionOne.'.'.$positionTwo;
+        $url = 'https://api.sandbox.cloud.galaxpay.com.br/v2/subscriptions';
+        $POSTVARS = array(
+            "myId"=> "pay-".$string,
+            "planMyId"=> env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611bd312cc20f4.66488865",
+            "firstPayDayDate"=> date('Y-m-d'),
+            "additionalInfo"=> "Informação adicional verificar",
+            "mainPaymentMethodId"=> "boleto",
+            "value" => $request['planosSaudes']['value'],
+            "Customer"=> array(
+                "myId"=> "pay-6116b48f64c599.25002392",
+                "name"=> $request['users']['name'],
+                "document"=> removeSymbols($request['users']['document'], ['.', '-']),
+                "emails"=> [
+                    $request['users']['email']
                 ],
-                "phones": [
-                    3140201512,
-                    31983890110
+                "phones"=> [
+                    removeSymbols($request['telefones']['telefone'], ['(', ')', '-', ' '])
                 ],
-                "Address": {
-                    "zipCode": "30411330",
-                    "street": "Rua platina",
-                    "number": "1330",
-                    "complement": "2º andar",
-                    "neighborhood": "Prado",
-                    "city": "Belo Horizonte",
-                    "state": "MG"
-                }
-            },
-            "PaymentMethodCreditCard": {
-                "Card": {
-                    "myId": "pay-6116b48f7280a3.43667231",
-                    "number": "4111 1111 1111 1111",
-                    "holder": "JOAO J J DA SILVA",
-                    "expiresAt": "2021-08",
-                    "cvv": "363"
-                }
-            },
-            "PaymentMethodBoleto": {
-                "fine": 100,
-                "interest": 200,
-                "instructions": "Lorem ipsum dolor sit amet.",
-                "deadlineDays": 1,
-                "value":15
-            }
-        }',
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer 82b4562197d13b5d6d5b47fb46955bd9ae5a5ce0',
-                'Content-Type: application/json'
+                "Address"=> array(
+                    "zipCode"=> removeSymbols($request['enderecos']['zipCode'], ['.', '-']),
+                    "street"=> $request['enderecos']['street'],
+                    "number"=> $request['enderecos']['number'],
+                    "complement"=> $request['enderecos']['complement'],
+                    "neighborhood"=> $request['enderecos']['neighborhood'],
+                    "city"=> $request['enderecos']['city'],
+                    "state"=> $request['enderecos']['state']
+                )
             ),
-        ));
+            "PaymentMethodBoleto"=> array(
+                "fine"=> 100,
+                "interest"=> 200,
+                "instructions"=> "Lorem ipsum dolor sit amet.",
+                "deadlineDays"=> 1
+            )
+        );
 
-        $response = curl_exec($curl);
+        $headers = array(
+            'Authorization: Bearer '. $token['access_token'],
+            'Content-Type: application/json'
+        );
 
-        curl_close($curl);
-        return $response;
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST ,1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($POSTVARS));
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);  
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1); 
+        $Rec_Data = curl_exec($ch);
+        curl_close($ch);
+
+        $data = json_decode($response, true);
+        return $data['Subscription']['paymentLink'];
     }
 
     public function cadastroCampanha($request)
@@ -252,7 +243,7 @@ class User extends Authenticatable
     }
 
     public function cadastroCampanhaBoleto($request)
-    {
+    {   
         $users = $request->all()['users'];
         $users['document'] = removeSymbols($users['document'], ['.', '-']);
         $users['password'] = Hash::make($users['document']);
@@ -305,9 +296,9 @@ class User extends Authenticatable
 
         $user->enderecos()->create($request->all()['enderecos']);
 
-        foreach ($galaxy['Subscription']['Transactions'] as $key => $value) {
-            $user->transactions()->create($value);
-        }
+        // foreach ($galaxy['Subscription']['Transactions'] as $key => $value) {
+        //     $user->transactions()->create($value);
+        // }
 
         return $galaxy;
     }
