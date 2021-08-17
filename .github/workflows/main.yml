@@ -12,10 +12,9 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.host }}
-        username: ${{ secrets.user }}
-        password: ${{ secrets.pass }}
-        port: ${{ secrets.port }}
+        host: ftp.cartaosaudeprevencao.com.br
+        username: cartaosaudeprevencao
+        password: cap2020
+        port: 21
         script: |
           ls
-          pwd
