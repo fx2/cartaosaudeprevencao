@@ -25,7 +25,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('campanha-boleto-token/{id}', 'App\Http\Controllers\Normal\CampanhaController@getTokenBoleto')->name('campanha-boleto-token');
+// Route::post('campanha-boleto-token/{id}', 'App\Http\Controllers\Normal\CampanhaController@getTokenBoleto')->name('campanha-boleto-token');
 Route::post('campanha-boleto', 'App\Http\Controllers\Normal\CampanhaController@salvaBoleto')->name('campanha-boleto');
 Route::resource('campanha', App\Http\Controllers\Normal\CampanhaController::class);
 

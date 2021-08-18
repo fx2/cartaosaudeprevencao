@@ -88,18 +88,18 @@
 									<div class="col-xs-12 col-sm-12 col-md-12" >
 										<div class="row">
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[number]" value="4111 1111 1111 1111" id="cartao_credito_number" placeholder="* Número do cartão" />
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[number]" id="cartao_credito_number" placeholder="* Número do cartão" />
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[holder]" value="JOAO J J DA SILVA" id="cartao_credito_holder" placeholder="* Nome no cartão" />
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[holder]" id="cartao_credito_holder" placeholder="* Nome no cartão" />
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[expiresAt]" value="08/2021" id="cartao_credito_expiresAt" placeholder="* Validade do cartão (Mês e Ano)" required="required" />
+												<input class="field-form" type="text" autocomplete="off" name="cartao_credito[expiresAt]" id="cartao_credito_expiresAt" placeholder="* Validade do cartão (Mês e Ano)" required="required" />
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
 												<div class="row">
 													<div class="col-xs-12 col-sm-9 col-md-9">
-														<input class="field-form" type="text" autocomplete="off" name="cartao_credito[cvv]" value="363" id="cartao_credito_cvv" placeholder="* Código de segurança do cartão" required="required" />
+														<input class="field-form" type="text" autocomplete="off" name="cartao_credito[cvv]" id="cartao_credito_cvv" placeholder="* Código de segurança do cartão" required="required" />
 													</div>
 													<div class="col-xs-12 col-sm-3 col-md-3 botao-enviar">
 														<input type="button" name="btn-enviar" class="btn btn-enviar" id="btn-enviar" value=">" />
@@ -411,7 +411,7 @@
 
   $('#btn-enviar-boleto').on('click', function(){
       
-      valida = validaCampos();
+    valida = validaCamposBoleto();
       if (valida != true) {
           return;
       }
@@ -429,6 +429,7 @@
               _token: '{{csrf_token()}}'
           },
           success: function (response) {
+            console.log(response, 222)
             storeBoleto(response)
           }, 
           error: function() {
@@ -562,6 +563,233 @@
 
   function validarEmail(email){
     return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
+  }
+  function validaCamposBoleto(){
+    let email = $('#email').val();
+    let telefone = $('#telefone').val();
+    let name = $('#name').val();
+    let empresa = $('#empresa').val();
+    let cnpj = $('#cnpj').val();
+    let qtdVidas = $('#qtd_vidas').val();
+    let document = $('#document').val();
+
+    let endereco_zipCode = $('#endereco_zipCode').val();
+    let endereco_state = $('#endereco_state').val();
+    let endereco_city = $('#endereco_city').val();
+    let endereco_neighborhood = $('#endereco_neighborhood').val();
+    let endereco_street = $('#endereco_street').val();
+    let endereco_number = $('#endereco_number').val();
+
+
+    if (!$('#termosdeuso').is(":checked")) {
+      Swal.fire({
+        icon: 'error',
+        title: `Não é possível prosseguir sem aceitar os termos de uso!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#termosdeuso').focus();
+          return false;
+        }
+      });
+      $('#termosdeuso').focus();
+      return false;
+    }
+
+    let dadosForm = {};
+    if(email == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe um E-mail!2`,
+        text: '', 
+        onAfterClose: () => {
+          $('#email').focus();
+          return false;
+        }
+      });
+      $('#email').focus();
+      return false;
+    }
+    if(validarEmail(email) == false){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe um E-mail válido!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#email').focus();
+          return false;
+        }
+      });
+      $('#email').focus();
+      return false;
+    }
+    if(telefone == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe um Telefone!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#telefone').focus();
+          return false;
+        }
+      });
+      $('#telefone').focus();
+      return false;
+    }
+    if(document == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe o CPF!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#document').focus();
+          return false;
+        }
+      });
+      $('#document').focus();
+      return false;
+    }
+    if(telefone.length < 14 || telefone.length > 15){ 
+      Swal.fire({
+        icon: 'error',
+        title: `O campo Telefone não está preenchido completamente!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#telefone').focus();
+          return false;
+        }
+      });
+      $('#telefone').focus();
+      return false;
+    }
+    if(name == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe o Nome do Contato!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#name').focus();
+          return false;
+        }
+      });
+      $('#name').focus();
+      return false;
+    }
+
+    if(endereco_zipCode == ''){
+      // console.log(endereco_zipCode, 222)
+      Swal.fire({
+        icon: 'error',
+        title: `Informe o cep!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#endereco_zipCode').focus();
+          return false;
+        }
+      });
+      $('#endereco_zipCode').focus();
+      return false;
+    }
+
+    if(endereco_state == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe o estado!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#endereco_state').focus();
+          return false;
+        }
+      });
+      $('#endereco_state').focus();
+      return false;
+    }
+
+    if(endereco_city == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe a cidade!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#endereco_city').focus();
+          return false;
+        }
+      });
+      $('#endereco_cityvv').focus();
+      return false;
+    }
+
+    if(endereco_neighborhood == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe o bairro!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#endereco_neighborhood').focus();
+          return false;
+        }
+      });
+      $('#endereco_neighborhood').focus();
+      return false;
+    }
+
+    if(endereco_street == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe a rua!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#endereco_street').focus();
+          return false;
+        }
+      });
+      $('#endereco_street').focus();
+      return false;
+    }
+
+    if(endereco_number == ''){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe o número!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#endereco_number').focus();
+          return false;
+        }
+      });
+      $('#endereco_number').focus();
+      return false;
+    }
+    
+    if(cnpj != ''){
+        if(cnpj.length < 18){
+          Swal.fire({
+            icon: 'error',
+            title: `O campo CNPJ não está preenchido completamente!`,
+            text: '', 
+            onAfterClose: () => {
+              $('#cnpj').focus();
+              return false;
+            }
+          });
+          $('#cnpj').focus();
+          return false;
+        }
+    }
+    if(qtdVidas == '' || qtdVidas == 0){
+      Swal.fire({
+        icon: 'error',
+        title: `Informe a Quantidade de Vidas!`,
+        text: '', 
+        onAfterClose: () => {
+          $('#qtd_vidas').focus();
+          return false;
+        }
+      });
+      $('#qtd_vidas').focus();
+      return false;
+    }
+
+    return true;
   }
   function validaCampos(){
     let email = $('#email').val();

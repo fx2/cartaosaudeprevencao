@@ -8860,8 +8860,9 @@ textarea.form-control {
     font-style: 16px;
     font-weight: 600;
     letter-spacing: 1px;
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    min-height: 300px;;
+    bottom: 300px;
     left: 0;
     right: 0;
     width: 60%;

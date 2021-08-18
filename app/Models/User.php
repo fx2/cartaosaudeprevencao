@@ -91,7 +91,7 @@ class User extends Authenticatable
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api.sandbox.cloud.galaxpay.com.br/v2/token',
+        CURLOPT_URL => env('APP_ENV') === 'production' ? "https://api.galaxpay.com.br/v2/token" : "https://api.sandbox.cloud.galaxpay.com.br/v2/token",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -100,8 +100,8 @@ class User extends Authenticatable
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
         CURLOPT_USERPWD => '{
-            "username": 5473,
-            "password": "83Mw5u8988Qj6fZqS4Z8K7LzOo1j28S706R0BeFe"
+            "username": "'.config('constants.galaxId').'",
+            "password": "'.config('constants.galaxHash').'"
         }',
         CURLOPT_POSTFIELDS =>'{
             "grant_type": "authorization_code",

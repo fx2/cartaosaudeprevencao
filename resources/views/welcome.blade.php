@@ -331,9 +331,9 @@
 				</div>
         	</div>
 
-			<div class="row">
-				<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
-					<div class="block-7">
+			<div class="row row-cols-2">
+				<div id="saude" class="col-md-4 col-lg-4 mt-4 ftco-animate">
+					<div class="blockprimeiro-7">
 						<div class="text-center">
 							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Bronze</span>
 							<span class="price"><sup>R$</sup> <span class="number">27,99</span> <sub>/mês</sub></span>	            
@@ -352,14 +352,13 @@
 								<li><span class="fa fa-check mr-2"></span>Exames USG</li>
 								<li><span class="fa fa-check mr-2"></span>Exames de Imagem</li>				                
 							</ul>
-
 							<a href="{{ url('campanha/cadastrar?plano=1') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
 						</div>
 					</div>
 				</div>
 			
-				<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
-					<div class="block-7">
+				<div id="saude" class="col-md-4 col-lg-4 mt-4 ftco-animate">
+					<div class="blocksegundo-7">
 						<div class="text-center">
 							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">BRONZE PLUS </span>
 							<span class="price"><sup>R$</sup> <span class="number">37,99</span> <sub>/mês</sub></span>
@@ -377,7 +376,7 @@
 								<li><span class="fa fa-check mr-2"></span>Podologia</li>
 								<li><span class="fa fa-check mr-2"></span>Psicologia</li>
 								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
-								<li><span class="fa fa-check mr-2"></span>Exames USG/li>
+								<li><span class="fa fa-check mr-2"></span>Exames USG</li>
 								<li><span class="fa fa-check mr-2"></span>Exames de Imagem </li>
 								<li><span class="fa fa-check mr-2"></span>1 APP de Entretenimento </li>
 								<li><span class="fa fa-check mr-2"></span>Banco MAGPAY </li>
@@ -393,8 +392,8 @@
 					</div>
 				</div>	    
 
-				<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
-					<div class="block-7">
+				<div id="saude" class="col-md-4 col-lg-4 mt-4 ftco-animate">
+					<div class="blockterceiro-7">
 						<div class="text-center">
 							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Prata</span>
 							<span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
