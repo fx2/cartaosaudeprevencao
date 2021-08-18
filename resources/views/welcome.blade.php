@@ -305,19 +305,19 @@
     <section class="ftco-section ftco-no-pb ftco-no-pt bg-secondary">
       <div class="container py-5">
     		<div class="row">
-          <div class="col-md-7 d-flex align-items-center">
-            <h2 class="mb-3 mb-sm-0" style="color:black; font-size: 22px;">Receba nossas informações e notícias</h2>
-          </div>
-          <div class="col-md-5 d-flex align-items-center">
-            <form action="#" class="subscribe-form">
-              <div class="form-group d-flex">
-                <input type="text" class="form-control" placeholder="Escreva seu e-mail aqui">
-				<a href="#" class="btn btn-primary d-block px-2 py-3">Enviar</a>                
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+				<div class="col-md-7 d-flex align-items-center">
+					<h2 class="mb-3 mb-sm-0" style="color:black; font-size: 22px;">Receba nossas informações e notícias</h2>
+				</div>
+				<div class="col-md-5 d-flex align-items-center">
+					<form action="#" class="subscribe-form">
+						<div class="form-group d-flex">
+							<input type="text" class="form-control" placeholder="Escreva seu e-mail aqui">
+							<a href="#" class="btn btn-primary d-block px-2 py-3">Enviar</a>                
+						</div>
+					</form>
+				</div>
+        	</div>
+      	</div>
     </section>
 
 <!-- ======= Planos Section ======= -->
@@ -325,97 +325,109 @@
     <section class="ftco-section bg-light">
     	<div class="container">
     		<div class="row justify-content-center pb-5 mb-3">
-          <div id="planos" class="col-md-7 heading-section text-center ftco-animate">
-          	<span class="subheading">Cartão Saúde Prevenção</span>
-            <h2>Planos</h2>
-          </div>
-        </div>
-
-    		<div class="row">
-    			<div class="col-md-6 col-lg-6">
-	          <div class="block-7">
-	            <div class="text-center">
-	            	<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Bronze</span>
-	            <span class="price"><sup>R$</sup> <span class="number">27,99</span> <sub>/mês</sub></span>	            
-	            <ul class="pricing-text mb-5 text-left">
-	            	<li><span class="fa fa-check mr-2"></span>Consultas médicas</li>
-	              	<li><span class="fa fa-check mr-2"></span>Exames de imagem</li>
-	              	<li><span class="fa fa-check mr-2"></span>Exames laboratoriais</li>
-	              	<li><span class="fa fa-check mr-2"></span>Fisioterapia</li>
-	              	<li><span class="fa fa-check mr-2"></span>Dentista</li>
-                    <li><span class="fa fa-check mr-2"></span>Estética</li>
-                    <li><span class="fa fa-check mr-2"></span>Fonoaudiólogo</li>
-					<li><span class="fa fa-check mr-2"></span>Psicólogo</li>
-					<li><span class="fa fa-check mr-2"></span>Nutricionista</li>
-                    <br>
-					<br>				                
-	            </ul>
-	            <a href="{{ url('campanha/cadastrar?plano=1') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
-	            </div>
-	          </div>
-			</div>
-			
-			      
-
-	        <div id="saude" class="col-md-6 col-lg-6 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-            	<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Prata</span>
-	            <span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
-	            
-	            <ul class="pricing-text mb-5 text-left">
-	            	<li><span class="fa fa-check mr-2"></span>Consultas médicas</li>
-	              	<li><span class="fa fa-check mr-2"></span>Exames de imagem</li>
-	              	<li><span class="fa fa-check mr-2"></span>Exames laboratoriais</li>
-	              	<li><span class="fa fa-check mr-2"></span>Fisioterapia</li>
-	              	<li><span class="fa fa-check mr-2"></span>Dentista</li>
-                  	<li><span class="fa fa-check mr-2"></span>Estética</li>
-                    <li><span class="fa fa-check mr-2"></span>Fonoaudiólogo</li>
-					<li><span class="fa fa-check mr-2"></span>Psicólogo</li>
-					<li><span class="fa fa-check mr-2"></span>Nutricionista</li>
-					<li><span class="fa fa-check mr-2"></span>Aplicativos de videos <br> (Paramount, Noggin Jr, Cartoon Network e TNTsports)</li>
-	            </ul>
-
-	            <a href="{{ url('campanha/cadastrar?plano=2') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
-	            </div>
-	          </div>
-			</div>	
-			<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
-				<div class="block-7">
-				  <div class="text-center">
-				  <span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">BRONZE PLUS </span>
-				  <span class="price"><sup>R$</sup> <span class="number">37,99</span> <sub>/mês</sub></span>
-				  <span class="price"> <span class="">Toda cobertura do PLANO BRONZE +</span></span>
-				  
-				  <ul class="pricing-text mb-5 text-left">
-					  <li><span class="fa fa-check mr-2"></span>Acupuntura</li>
-					  <li><span class="fa fa-check mr-2"></span>Consultas Médicas </li>
-					  <li><span class="fa fa-check mr-2"></span>Dentista</li>
-					  <li><span class="fa fa-check mr-2"></span>Estética</li>
-					  <li><span class="fa fa-check mr-2"></span>Exames Laboratoriais</li>
-					  <li><span class="fa fa-check mr-2"></span>Fisioterapia</li>
-					  <li><span class="fa fa-check mr-2"></span>Fonoaudiologia</li>
-					  <li><span class="fa fa-check mr-2"></span>Hidroterapia</li>
-					  <li><span class="fa fa-check mr-2"></span>Podologia</li>
-					  <li><span class="fa fa-check mr-2"></span>Psicologia</li>
-					  <li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
-						<li><span class="fa fa-check mr-2"></span>Exames USG/li>
-						<li><span class="fa fa-check mr-2"></span>Exames de Imagem </li>
-						<li><span class="fa fa-check mr-2"></span>1 APP de Entretenimento </li>
-						<li><span class="fa fa-check mr-2"></span>Banco MAGPAY </li>
-						<li><span class="fa fa-check mr-2"></span>Conta Digital </li>
-					  <li><span class="fa fa-check mr-2"></span>2 Consultas por ano de Telemedicina </li>
-					  <li><span class="fa fa-check mr-2"></span>Cartão Visa Internacional </li>
-					  <li><span class="fa fa-check mr-2"></span>Clube de Descontos </li>
-					  <li><span class="fa fa-check mr-2"></span>Assistência Funeral para correntista </li>
-				  </ul>
-  
-				  <a href="{{ url('campanha/cadastrar?plano=3') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
-				  </div>
+				<div id="planos" class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">Cartão Saúde Prevenção</span>
+					<h2>Planos</h2>
 				</div>
-			  </div>	    	        
-	      </div>
-    	</div>
+        	</div>
+
+			<div class="row">
+				<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
+					<div class="block-7">
+						<div class="text-center">
+							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Bronze</span>
+							<span class="price"><sup>R$</sup> <span class="number">27,99</span> <sub>/mês</sub></span>	            
+							<ul class="pricing-text mb-5 text-left">
+								<li><span class="fa fa-check mr-2"></span>Acupuntura </li>
+								<li><span class="fa fa-check mr-2"></span>Consultas Médicas</li>
+								<li><span class="fa fa-check mr-2"></span>Dentista </li>
+								<li><span class="fa fa-check mr-2"></span>Estética </li>
+								<li><span class="fa fa-check mr-2"></span>Exames Laboratoriais </li>
+								<li><span class="fa fa-check mr-2"></span>Fisioterapia </li>
+								<li><span class="fa fa-check mr-2"></span>Fonoaudiologia </li>
+								<li><span class="fa fa-check mr-2"></span>Hidroterapia </li>
+								<li><span class="fa fa-check mr-2"></span>Podologia</li>
+								<li><span class="fa fa-check mr-2"></span>Psicologia </li>
+								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
+								<li><span class="fa fa-check mr-2"></span>Exames USG</li>
+								<li><span class="fa fa-check mr-2"></span>Exames de Imagem</li>				                
+							</ul>
+
+							<a href="{{ url('campanha/cadastrar?plano=1') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
+						</div>
+					</div>
+				</div>
+			
+				<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
+					<div class="block-7">
+						<div class="text-center">
+							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">BRONZE PLUS </span>
+							<span class="price"><sup>R$</sup> <span class="number">37,99</span> <sub>/mês</sub></span>
+							<span class="price"> <span class="">Toda cobertura do PLANO BRONZE +</span></span>
+							
+							<ul class="pricing-text mb-5 text-left">
+								<li><span class="fa fa-check mr-2"></span>Acupuntura</li>
+								<li><span class="fa fa-check mr-2"></span>Consultas Médicas </li>
+								<li><span class="fa fa-check mr-2"></span>Dentista</li>
+								<li><span class="fa fa-check mr-2"></span>Estética</li>
+								<li><span class="fa fa-check mr-2"></span>Exames Laboratoriais</li>
+								<li><span class="fa fa-check mr-2"></span>Fisioterapia</li>
+								<li><span class="fa fa-check mr-2"></span>Fonoaudiologia</li>
+								<li><span class="fa fa-check mr-2"></span>Hidroterapia</li>
+								<li><span class="fa fa-check mr-2"></span>Podologia</li>
+								<li><span class="fa fa-check mr-2"></span>Psicologia</li>
+								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
+								<li><span class="fa fa-check mr-2"></span>Exames USG/li>
+								<li><span class="fa fa-check mr-2"></span>Exames de Imagem </li>
+								<li><span class="fa fa-check mr-2"></span>1 APP de Entretenimento </li>
+								<li><span class="fa fa-check mr-2"></span>Banco MAGPAY </li>
+								<li><span class="fa fa-check mr-2"></span>Conta Digital </li>
+								<li><span class="fa fa-check mr-2"></span>2 Consultas por ano de Telemedicina </li>
+								<li><span class="fa fa-check mr-2"></span>Cartão Visa Internacional </li>
+								<li><span class="fa fa-check mr-2"></span>Clube de Descontos </li>
+								<li><span class="fa fa-check mr-2"></span>Assistência Funeral para correntista </li>
+							</ul>
+			
+							<a href="{{ url('campanha/cadastrar?plano=3') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
+						</div>
+					</div>
+				</div>	    
+
+				<div id="saude" class="col-md-6 col-lg-6 mt-4 ftco-animate">
+					<div class="block-7">
+						<div class="text-center">
+							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Prata</span>
+							<span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
+							
+							<ul class="pricing-text mb-5 text-left">
+								<li><span class="fa fa-check mr-2"></span> Acupuntura</li>
+								<li><span class="fa fa-check mr-2"></span> Consultas Médicas </li>
+								<li><span class="fa fa-check mr-2"></span> Dentista</li>
+								<li><span class="fa fa-check mr-2"></span> Estética </li>
+								<li><span class="fa fa-check mr-2"></span> Exames Laboratoriais</li>
+								<li><span class="fa fa-check mr-2"></span> Fisioterapia </li>
+								<li><span class="fa fa-check mr-2"></span> Fonoaudiologia</li>
+								<li><span class="fa fa-check mr-2"></span> Hidroterapia </li>
+								<li><span class="fa fa-check mr-2"></span> Podologia </li>
+								<li><span class="fa fa-check mr-2"></span> Psicologia </li>
+								<li><span class="fa fa-check mr-2"></span> Exames Cardiológicos </li>
+								<li><span class="fa fa-check mr-2"></span> Exames USG</li>
+								<li><span class="fa fa-check mr-2"></span> Exames de Imagem </li>
+								<li><span class="fa fa-check mr-2"></span> Banco MAGPAY </li>
+								<li><span class="fa fa-check mr-2"></span> Conta Digital </li>
+								<li><span class="fa fa-check mr-2"></span> 2 Consultas por Ano por Telemedicina </li>
+								<li><span class="fa fa-check mr-2"></span> Cartão Visa Internacional </li>
+								<li><span class="fa fa-check mr-2"></span> Clube de Descontos </li>
+								<li><span class="fa fa-check mr-2"></span> Assistência Funeral para o correntista </li>
+								<li><span class="fa fa-check mr-2"></span> 4 APP Entretenimento </li>
+							</ul>
+
+							<a href="{{ url('campanha/cadastrar?plano=2') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
+						</div>
+					</div>
+				</div>
+			  </div>
+		</div>
     </section>
   
 
