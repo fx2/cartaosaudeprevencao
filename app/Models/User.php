@@ -89,9 +89,9 @@ class User extends Authenticatable
     public function getTokenGalaxPay()
     {    
         $curl = curl_init();
-
+        $galaxPay = config('constants.galaxUrl') . 'token';
         curl_setopt_array($curl, array(
-        CURLOPT_URL => env('APP_ENV') === 'production' ? "https://api.galaxpay.com.br/v2/token" : "https://api.sandbox.cloud.galaxpay.com.br/v2/token",
+        CURLOPT_URL => $galaxPay,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -125,7 +125,7 @@ class User extends Authenticatable
 
         $positionOne = substr(md5(rand ()), 0, 14);
         $positionTwo = rand(1000000, 9999999);
-        $galaxUrl = (string)  env('APP_ENV') === 'production' ? "https://api.galaxpay.com.br/v2/subscriptions" : "https://api.sandbox.cloud.galaxpay.com.br/v2/subscriptions" ;
+        $galaxUrl = config('constants.galaxUrl') . 'subscriptions';
         $string = $positionOne.'.'.$positionTwo;
 
         $POSTVARS = array(
@@ -259,6 +259,7 @@ class User extends Authenticatable
 
         $boleto = $this->getTokenGalaxPayBoleto($request);
         $bol = json_decode($boleto, true);
+        return $bol;
         
         if (!isset($bol['Subscription']))
             return 'chave_igual';
