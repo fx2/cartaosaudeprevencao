@@ -130,7 +130,7 @@ class User extends Authenticatable
 
         $POSTVARS = array(
             "myId"=> "pay-".$string,
-            "planMyId"=> env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611bf30508e8d7.43719626",
+            "planMyId"=> $request['planosSaudes']['planMyId'],
             "firstPayDayDate"=> date('Y-m-d'),
             "additionalInfo"=> "Informação adicional verificar",
             "mainPaymentMethodId"=> "boleto",
