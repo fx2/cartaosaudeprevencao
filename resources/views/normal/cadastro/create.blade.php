@@ -126,7 +126,7 @@
                 <input type="button" name="btn-enviar-boleto" class="btn btn-success btn-enviar-boleto" id="btn-enviar-boleto" value="Gerar boleto" />                
 							</div>
 						  </div>
-						</div>
+						</div> 
 					  </div>
 					</div>
               </div>
@@ -260,6 +260,10 @@
           $('#endereco_state').val(response.state);
         }, 
     });
+  }
+
+  function abreBoleto(boleto){
+    window.open(boleto, 'janela')
   }
 
   $('#btn-enviar').on('click', function(){
@@ -429,7 +433,6 @@
               _token: '{{csrf_token()}}'
           },
           success: function (response) {
-            console.log(response, 222)
             storeBoleto(response)
           }, 
           error: function() {
@@ -522,13 +525,13 @@
 
             else {
               setTimeout(function() {
-                window.open(response.Subscription.Transactions[0].Boleto.pdf, '_blank');
-              }, 3000);
+                abreBoleto(response.Subscription.Transactions[0].Boleto.pdf)
+              }, 2000);
              
               Swal.fire({
                 icon: 'success',
                 title: '',
-                text: `O cadastro foi efetuado com sucesso e está sobre analise da nossa equipe de vendas, você receberá um email de confirmação. \n Número do protocolo: ${response.Subscription.Customer.myId}`, 
+                text: `O cadastro foi efetuado com sucesso e está sobre analise da nossa equipe de vendas, você receberá um email de confirmação. \n Número do protocolo: ${response.Subscription.Customer.myId}. \n Por favor, habilitar pop up do navegador para impressão do boleto.`, 
                 onAfterClose: () => {
                   window.location.replace("/");
                 }
