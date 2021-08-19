@@ -263,7 +263,8 @@
   }
 
   function abreBoleto(boleto){
-    window.open(boleto, 'janela')
+    let newTab = window.open();
+    newTab.location.href = boleto;
   }
 
   $('#btn-enviar').on('click', function(){
