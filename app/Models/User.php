@@ -128,6 +128,10 @@ class User extends Authenticatable
         $galaxUrl = config('constants.galaxUrl') . 'subscriptions';
         $string = $positionOne.'.'.$positionTwo;
 
+        $costumerOne = substr(md5(rand ()), 0, 14);
+        $costumerTwo = rand(1000000, 9999999);
+        $stringCostumer = $costumerOne. '.'. $costumerTwo;
+
         $POSTVARS = array(
             "myId"=> "pay-".$string,
             "planMyId"=> $request['planosSaudes']['planMyId'],
@@ -136,7 +140,7 @@ class User extends Authenticatable
             "mainPaymentMethodId"=> "boleto",
             "value" => $request['planosSaudes']['value'],
             "Customer"=> array(
-                "myId"=> "pay-6116b48f64c599.25002392",
+                "myId"=> $stringCostumer,
                 "name"=> $request['users']['name'],
                 "document"=> removeSymbols($request['users']['document'], ['.', '-']),
                 "emails"=> [
