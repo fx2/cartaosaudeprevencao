@@ -158,7 +158,6 @@ class User extends Authenticatable
             "PaymentMethodBoleto"=> array(
                 "fine"=> 100,
                 "interest"=> 200,
-                "instructions"=> "Pague em casas lotéricas ou via PIX.",
                 "deadlineDays"=> 1
             )
         );
