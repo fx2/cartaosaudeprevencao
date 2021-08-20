@@ -525,16 +525,12 @@
             }
 
             else {
-              setTimeout(function() {
-                abreBoleto(response.Subscription.Transactions[0].Boleto.pdf)
-              }, 2000);
-             
               Swal.fire({
                 icon: 'success',
                 title: '',
-                text: `O cadastro foi efetuado com sucesso e está sobre analise da nossa equipe de vendas, você receberá um email de confirmação. \n Número do protocolo: ${response.Subscription.Customer.myId}. \n Por favor, habilitar pop up do navegador para impressão do boleto.`, 
+                text: `O cadastro foi efetuado com sucesso e está sobre analise da nossa equipe de vendas, você receberá um email de confirmação. \n Número do protocolo: ${response.Subscription.Customer.myId}.`, 
                 onAfterClose: () => {
-                  window.location.replace("/");
+                  window.open(response.Subscription.Transactions[0].Boleto.pdf);
                 }
               });
             }
