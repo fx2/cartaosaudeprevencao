@@ -530,7 +530,7 @@
                 title: '',
                 text: `O cadastro foi efetuado com sucesso e está sobre analise da nossa equipe de vendas, você receberá um email de confirmação. \n Número do protocolo: ${response.Subscription.Customer.myId}.`, 
                 onAfterClose: () => {
-                  window.open(response.Subscription.Transactions[0].Boleto.pdf);
+                  window.location.href(response.Subscription.Transactions[0].Boleto.pdf);
                 }
               });
             }
