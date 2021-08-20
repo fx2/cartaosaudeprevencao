@@ -91,7 +91,7 @@ class User extends Authenticatable
         $curl = curl_init();
         $galaxPay = config('constants.galaxUrl') . 'token';
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.galaxpay.com.br/v2/token",
+        CURLOPT_URL => $galaxPay,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -100,15 +100,15 @@ class User extends Authenticatable
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => 'POST',
         CURLOPT_USERPWD => '{
-            "username": "16435",
-            "password": "OfGg7iE05bWlWeO0GoW1W96xI4L10i28DeAcX0Mw"
+            "username": "'.config('constants.galaxId').'",
+            "password": "'.config('constants.galaxHash').'"
         }',
         CURLOPT_POSTFIELDS =>'{
             "grant_type": "authorization_code",
             "scope": "customers.read customers.write plans.read plans.write transactions.read transactions.write webhooks.write cards.read cards.write card-brands.read subscriptions.read subscriptions.write charges.read charges.write boletos.read"
         }',
         CURLOPT_HTTPHEADER => array(
-            'Authorization: Basic NTQ3Mzo4M013NXU4OTg4UWo2ZlpxUzRaOEs3THpPbzFqMjhTNzA2UjBCZUZl',
+            'Authorization: Basic MTY0MzU6T2ZHZzdpRTA1YldsV2VPMEdvVzFXOTZ4STRMMTBpMjhEZUFjWDBNdw==',
             'Content-Type: application/json'
         ),
         ));
