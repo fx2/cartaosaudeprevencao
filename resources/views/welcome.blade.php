@@ -352,6 +352,7 @@
 								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
 								<li><span class="fa fa-check mr-2"></span>Exames USG</li>
 								<li><span class="fa fa-check mr-2"></span>Exames de Imagem</li>				                
+								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para titular</li>				                
 							</ul>
 							<a href="{{ url('campanha/cadastrar?plano=1') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
 						</div>
@@ -380,12 +381,6 @@
 								<li><span class="fa fa-check mr-2"></span>Exames USG</li>
 								<li><span class="fa fa-check mr-2"></span>Exames de Imagem </li>
 								<li><span class="fa fa-check mr-2"></span>1 APP de Entretenimento </li>
-								<li><span class="fa fa-check mr-2"></span>Banco MAGPAY </li>
-								<li><span class="fa fa-check mr-2"></span>Conta Digital </li>
-								<li><span class="fa fa-check mr-2"></span>2 Consultas por ano de Telemedicina </li>
-								<li><span class="fa fa-check mr-2"></span>Cartão Visa Internacional </li>
-								<li><span class="fa fa-check mr-2"></span>Clube de Descontos </li>
-								<li><span class="fa fa-check mr-2"></span>Assistência Funeral para correntista </li>
 							</ul>
 			
 							<a href="{{ url('campanha/cadastrar?plano=3') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
@@ -413,13 +408,11 @@
 								<li><span class="fa fa-check mr-2"></span> Exames Cardiológicos </li>
 								<li><span class="fa fa-check mr-2"></span> Exames USG</li>
 								<li><span class="fa fa-check mr-2"></span> Exames de Imagem </li>
-								<li><span class="fa fa-check mr-2"></span> Banco MAGPAY </li>
-								<li><span class="fa fa-check mr-2"></span> Conta Digital </li>
 								<li><span class="fa fa-check mr-2"></span> 2 Consultas por Ano por Telemedicina </li>
-								<li><span class="fa fa-check mr-2"></span> Cartão Visa Internacional </li>
-								<li><span class="fa fa-check mr-2"></span> Clube de Descontos </li>
 								<li><span class="fa fa-check mr-2"></span> Assistência Funeral para o correntista </li>
 								<li><span class="fa fa-check mr-2"></span> 4 APP Entretenimento </li>
+								<li><span class="fa fa-check mr-2"></span>Assistência Funeral para titular </li>
+								<li><span class="fa fa-check mr-2"></span>Telemedicina 24 horas para o titular</li>
 							</ul>
 
 							<a href="{{ url('campanha/cadastrar?plano=2') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
