@@ -8932,11 +8932,12 @@
       font-style: 16px;
       font-weight: 600;
       letter-spacing: 1px;
-      position: absolute;
+      position: relative;
+      top:60px;
       bottom: 0;
       left: 0;
       right: 0;
-      width: 60%;
+      width: 80%;
       margin: 0 auto; }
       .blocksegundo-7 .btn-primary:hover, .blocksegundo-7 .btn-primary:focus {
         background: #1ba12d !important;
