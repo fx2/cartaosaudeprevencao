@@ -396,7 +396,7 @@
 					<div class="blockterceiro-7">
 						<div class="text-center">
 							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Prata</span>
-							<span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
+							<span class="price"><sup>R$</sup> <span class="number">59,00</span> <sub>/mês</sub></span>
 							
 							<ul class="pricing-text mb-5 text-left">
 								<li><span class="fa fa-check mr-2"></span>Acupuntura  </li>
