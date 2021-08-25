@@ -408,8 +408,6 @@
 								<li><span class="fa fa-check mr-2"></span> Exames Cardiológicos </li>
 								<li><span class="fa fa-check mr-2"></span> Exames USG</li>
 								<li><span class="fa fa-check mr-2"></span> Exames de Imagem </li>
-								<li><span class="fa fa-check mr-2"></span> 2 Consultas por Ano por Telemedicina </li>
-								<li><span class="fa fa-check mr-2"></span> Assistência Funeral para o correntista </li>
 								<li><span class="fa fa-check mr-2"></span> 4 APP Entretenimento </li>
 								<li><span class="fa fa-check mr-2"></span>Assistência Funeral para titular </li>
 								<li><span class="fa fa-check mr-2"></span>Telemedicina 24 horas para o titular</li>
