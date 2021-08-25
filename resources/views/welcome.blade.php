@@ -339,20 +339,21 @@
 							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Bronze</span>
 							<span class="price"><sup>R$</sup> <span class="number">27,99</span> <sub>/mês</sub></span>	            
 							<ul class="pricing-text mb-5 text-left">
-								<li><span class="fa fa-check mr-2"></span>Acupuntura </li>
-								<li><span class="fa fa-check mr-2"></span>Consultas Médicas</li>
-								<li><span class="fa fa-check mr-2"></span>Dentista </li>
-								<li><span class="fa fa-check mr-2"></span>Estética </li>
+								<li><span class="fa fa-check mr-2"></span>Acupuntura  </li>
+								<li><span class="fa fa-check mr-2"></span>Consulta Médicas  </li>
+								<li><span class="fa fa-check mr-2"></span>Dentista  </li>
+								<li><span class="fa fa-check mr-2"></span>Estetica  </li>
 								<li><span class="fa fa-check mr-2"></span>Exames Laboratoriais </li>
 								<li><span class="fa fa-check mr-2"></span>Fisioterapia </li>
-								<li><span class="fa fa-check mr-2"></span>Fonoaudiologia </li>
-								<li><span class="fa fa-check mr-2"></span>Hidroterapia </li>
-								<li><span class="fa fa-check mr-2"></span>Podologia</li>
-								<li><span class="fa fa-check mr-2"></span>Psicologia </li>
-								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
-								<li><span class="fa fa-check mr-2"></span>Exames USG</li>
-								<li><span class="fa fa-check mr-2"></span>Exames de Imagem</li>				                
-								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para titular</li>				                
+								<li><span class="fa fa-check mr-2"></span>Fonoaudiologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Hidroterapia  </li>
+								<li><span class="fa fa-check mr-2"></span>Podologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Psicologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames USG </li>
+								<li><span class="fa fa-check mr-2"></span>Exames de Imagem  </li>
+								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para o titular </li>	
+								<li><span class="fa fa-check mr-2"></span>Cartão de desconto em todo Brasil </li>	                
 							</ul>
 							<a href="{{ url('campanha/cadastrar?plano=1') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
 						</div>
@@ -367,20 +368,23 @@
 							<span class="price"> <span class="">Toda cobertura do PLANO BRONZE +</span></span>
 							
 							<ul class="pricing-text mb-5 text-left">
-								<li><span class="fa fa-check mr-2"></span>Acupuntura</li>
-								<li><span class="fa fa-check mr-2"></span>Consultas Médicas </li>
-								<li><span class="fa fa-check mr-2"></span>Dentista</li>
-								<li><span class="fa fa-check mr-2"></span>Estética</li>
-								<li><span class="fa fa-check mr-2"></span>Exames Laboratoriais</li>
-								<li><span class="fa fa-check mr-2"></span>Fisioterapia</li>
-								<li><span class="fa fa-check mr-2"></span>Fonoaudiologia</li>
-								<li><span class="fa fa-check mr-2"></span>Hidroterapia</li>
-								<li><span class="fa fa-check mr-2"></span>Podologia</li>
-								<li><span class="fa fa-check mr-2"></span>Psicologia</li>
-								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos </li>
-								<li><span class="fa fa-check mr-2"></span>Exames USG</li>
-								<li><span class="fa fa-check mr-2"></span>Exames de Imagem </li>
-								<li><span class="fa fa-check mr-2"></span>1 APP de Entretenimento </li>
+
+								<li><span class="fa fa-check mr-2"></span>Acupuntura </li>
+								<li><span class="fa fa-check mr-2"></span>Consultas Médicas  </li>
+								<li><span class="fa fa-check mr-2"></span>Dentista  </li>
+								<li><span class="fa fa-check mr-2"></span>Estetica  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames Laboratoriais  </li>
+								<li><span class="fa fa-check mr-2"></span>Fisioterapia  </li>
+								<li><span class="fa fa-check mr-2"></span>Fonoaudiologia </li>
+								<li><span class="fa fa-check mr-2"></span>Hidroterapia  </li>
+								<li><span class="fa fa-check mr-2"></span>Podologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Psicologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames USG </li>
+								<li><span class="fa fa-check mr-2"></span>Exames de Imagem  </li>
+								<li><span class="fa fa-check mr-2"></span>1 APP de entretenimento  </li>
+								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para o Titular </li>
+								<li><span class="fa fa-check mr-2"></span>Cartão de desconto em todo Brasil </li>
 							</ul>
 			
 							<a href="{{ url('campanha/cadastrar?plano=3') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
@@ -395,22 +399,23 @@
 							<span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
 							
 							<ul class="pricing-text mb-5 text-left">
-								<li><span class="fa fa-check mr-2"></span> Acupuntura</li>
-								<li><span class="fa fa-check mr-2"></span> Consultas Médicas </li>
-								<li><span class="fa fa-check mr-2"></span> Dentista</li>
-								<li><span class="fa fa-check mr-2"></span> Estética </li>
-								<li><span class="fa fa-check mr-2"></span> Exames Laboratoriais</li>
-								<li><span class="fa fa-check mr-2"></span> Fisioterapia </li>
-								<li><span class="fa fa-check mr-2"></span> Fonoaudiologia</li>
-								<li><span class="fa fa-check mr-2"></span> Hidroterapia </li>
-								<li><span class="fa fa-check mr-2"></span> Podologia </li>
-								<li><span class="fa fa-check mr-2"></span> Psicologia </li>
-								<li><span class="fa fa-check mr-2"></span> Exames Cardiológicos </li>
-								<li><span class="fa fa-check mr-2"></span> Exames USG</li>
-								<li><span class="fa fa-check mr-2"></span> Exames de Imagem </li>
-								<li><span class="fa fa-check mr-2"></span> 4 APP Entretenimento </li>
-								<li><span class="fa fa-check mr-2"></span>Assistência Funeral para titular </li>
-								<li><span class="fa fa-check mr-2"></span>Telemedicina 24 horas para o titular</li>
+								<li><span class="fa fa-check mr-2"></span>Acupuntura  </li>
+								<li><span class="fa fa-check mr-2"></span>Consulta Médicas </li>
+								<li><span class="fa fa-check mr-2"></span>Dentista  </li>
+								<li><span class="fa fa-check mr-2"></span>Estetica  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames Laboratoriais </li>
+								<li><span class="fa fa-check mr-2"></span>Fisioterapia </li>
+								<li><span class="fa fa-check mr-2"></span>Fonoaudiologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Hidroterapia </li>
+								<li><span class="fa fa-check mr-2"></span>Podologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Psicologia  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames Cardiológicos  </li>
+								<li><span class="fa fa-check mr-2"></span>Exames USG </li>
+								<li><span class="fa fa-check mr-2"></span>Exames de Imagem  </li>
+								<li><span class="fa fa-check mr-2"></span>Telemedicina 24 hrs para titular  </li>
+								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para titular  </li>
+								<li><span class="fa fa-check mr-2"></span>4 APP Entretenimento </li>
+								<li><span class="fa fa-check mr-2"></span>Cartão de desconto em todo Brasil </li>
 							</ul>
 
 							<a href="{{ url('campanha/cadastrar?plano=2') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
