@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Models\PlanosSaude;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $planosSaude = PlanosSaude::whereRaw("COUNT(id)")
         return view('home');
     }
 
