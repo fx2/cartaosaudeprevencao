@@ -1,9 +1,9 @@
-@extends('adminlte::page')
+@extends('layouts.template')
 
-@section('title', "Editar o vendedor {$vendedor->name}")
+@section('title', 'Editar vendedor')
 
 @section('content_header')
-    <h1>Editar o vendedor {{ $vendedor->name }}</h1>
+
 @stop
 
 @section('content')

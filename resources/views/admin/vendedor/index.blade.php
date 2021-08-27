@@ -1,12 +1,9 @@
-@extends('adminlte::page')
+@extends('layouts.template')
 
 @section('title', 'Vendedores')
 
 @section('content_header')
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('vendedores.index') }}" class="active">Vendedores</a></li>
-    </ol>
+
 @stop
 
 @section('content')
