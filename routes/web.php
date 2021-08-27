@@ -21,9 +21,14 @@ Route::get('/site', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->group(function () {
+    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('vendedores/deletar', [App\Http\Controllers\Vendedores\VendedorController::class, 'deletar']);
+    Route::resource('vendedores', App\Http\Controllers\Vendedores\VendedorController::class);
+});
+
 
 // Route::post('campanha-boleto-token/{id}', 'App\Http\Controllers\Normal\CampanhaController@getTokenBoleto')->name('campanha-boleto-token');
 Route::post('campanha-boleto', 'App\Http\Controllers\Normal\CampanhaController@salvaBoleto')->name('campanha-boleto');

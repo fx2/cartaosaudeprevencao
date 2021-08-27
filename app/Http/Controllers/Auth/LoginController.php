@@ -55,7 +55,8 @@ class LoginController extends Controller
         $user = User::select(
             'users.id',
             'users.password',
-            'users.email'
+            'users.email',
+            'type'
         )
         ->where(function($query) use ($use){
             $query->where('users.email', $use);
@@ -65,6 +66,8 @@ class LoginController extends Controller
         if (isset($user->type)) {
             if ($user->type != 'admin') 
                 return redirect('login')->with('status', 'Sem autorização para acessar o sistema');    
+        } else {
+            return redirect('login')->with('status', 'Sem autorização para acessar o sistema');    
         }
 
         if($user)

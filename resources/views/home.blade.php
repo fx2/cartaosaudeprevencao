@@ -1,20 +1,26 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
 
 @section('content')
+    <div class="col-md-8">
+        <div class="card">
 
-<div class="container">
-    <div class="row">
-        @include('layouts/fragments/menu-temporario')
-
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    {{ __('Você está logado no sistema!') }}
-                </div>
+            <div class="card-body">
+                {{ __('Você está logado no sistema!rrrr') }}
             </div>
         </div>
     </div>
-</div>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    {{-- <script> console.log('Hi!'); </script> --}}
+@stop

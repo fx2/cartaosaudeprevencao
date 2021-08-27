@@ -86,6 +86,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Transaction');
     }
 
+    public function vendedores()
+    {
+        return $this->hasOne('App\Models\Vendedores');
+    }
+
     public function getTokenGalaxPay()
     {    
         $curl = curl_init();
