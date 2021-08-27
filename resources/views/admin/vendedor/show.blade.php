@@ -27,6 +27,7 @@
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O VENDEDOR {{ $vendedor->name }}</button>
+                <a href="{{ route('vendedores.index') }}" type="button" class="btn btn-warning">Voltar</a>
             </form>
         </div>
     </div>

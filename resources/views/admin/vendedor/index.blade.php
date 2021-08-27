@@ -96,8 +96,14 @@
         });
 
         $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });   
             $('#vendedor tbody').on('click', '.btnDeletar', function () {
                 var _this = this;
+                id = $(_this).attr('data-id');
                 swal({
                     title: "Você tem certeza?",
                     text: "Você realmente deseja deletar?",
@@ -107,12 +113,14 @@
                         "Cancelar", "Sim, deletar"
                     ],
                 }).then(function (result) {
+                    console.log(result,32)
                     if (result) {
                         $.ajax({
-                            url: "{{url('admin/vendedores/deletar')}}",
+                            url: "{{ route('vendedores.deletar', "+id+") }}",
                             type: 'POST',
                             data: {
-                                id: $(_this).attr('data-id')
+                                "_token": "{{ csrf_token() }}",
+                                id: id
                             },
                             dataType: 'JSON',
                             success: function (result) {
@@ -130,9 +138,10 @@
                                 }
                             },
                             error: function (result) {
+                                console.log(result, 77)
                                 swal({
                                     title: "Erro ao deletar",
-                                    text: result.responseJSON.message,
+                                    text: result.responseJSON,
                                     icon: "error"
                                 });
                             }

@@ -25,7 +25,7 @@ Auth::routes(['register' => false]);
 
 Route::prefix('admin')->group(function () {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::post('vendedores/deletar', [App\Http\Controllers\Vendedores\VendedorController::class, 'deletar']);
+    Route::post('vendedores/deletar', [App\Http\Controllers\Vendedores\VendedorController::class, 'deletar'])->name('vendedores.deletar');
     Route::resource('vendedores', App\Http\Controllers\Vendedores\VendedorController::class);
 });
 
