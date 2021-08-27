@@ -20,12 +20,12 @@
             </div>
         </div> 
         <ul class="sidebar-menu scrollable pos-r">
-            <li class="nav-item"><a class="sidebar-link" href="{{ url('admin') }}"><span class="icon-holder"><i class="c-green-500 fas fa-home"></i> </span><span class="title">Home</span></a></li>
+            <li class="nav-item"><a class="sidebar-link" href="{{ url('admin/home') }}"><span class="icon-holder"><i class="c-green-500 fas fa-home"></i> </span><span class="title">Home</span></a></li>
             @can('isAdmin')
                 <li class="nav-item"><a class="sidebar-link" href="{{ url('admin/vendedores') }}"><span class="icon-holder"><i class="c-red-500 fas fa-users"></i> </span><span class="title">Vendedor</span></a></li>
             @endcan
                     
-            <li class="nav-item"><a class="sidebar-link" href=""><span class="icon-holder"><i class="c-yellow-500 fas fa-key"></i> </span><span class="title">Alterar cadastro</span></a></li>
+            <li class="nav-item"><a class="sidebar-link" href="{{ route('editar-cadastro.edit', \Auth::user()->id) }}"><span class="icon-holder"><i class="c-yellow-500 fas fa-key"></i> </span><span class="title">Alterar cadastro</span></a></li>
         </ul>
     </div>
 </div>
