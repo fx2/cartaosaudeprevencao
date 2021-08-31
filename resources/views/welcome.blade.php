@@ -61,7 +61,7 @@
 			  <li class="nav-item"><a href="../form_sind.html" target="_blank" class="nav-link">Sindicato</a></li>
 	          <li class="nav-item"><a href="#" class="nav-link">Área do Cliente</a></li>
 	          <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
-	          <li class="nav-item"><a href="https://cartaomasterclin.com.br/usuarios/validar-cartao" target="_blank" class="nav-link">MasterClin</a></li>
+	          <li class="nav-item"><a href="https://cartaomasterclin.com.br/usuarios/validar-cartao" target="_blank" class="nav-link">Validador</a></li>
 	        </ul>
 	      </div>
 	    </div>
