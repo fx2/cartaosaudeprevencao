@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-namespace App\Models\PlanosSaude;
 
+use App\Models\Vendas;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,8 +24,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $planosSaude = PlanosSaude::whereRaw("COUNT(id)")
-        return view('home');
+        $vendas = Vendas::selectRaw("
+                    count(vendas.id) as qtd,
+                    pricings.id,
+                    pricings.title
+                ")
+                ->join('pricings', 'pricings.id', 'vendas.plans_id')
+                ->orderByRaw("COUNT(vendas.plans_id)")
+                ->groupBy('pricings.id')
+                ->get();
+
+        $vendedores = Vendas::selectRaw("
+                    count(vendas.id) as qtd,
+                    users.name
+                ")
+                ->join('vendedores', 'vendedores.id', 'vendas.vendedor_id')
+                ->join('users', 'users.id', 'vendedores.user_id')
+                ->orderByRaw("COUNT(vendas.plans_id)")
+                ->groupBy('vendedores.id')
+                ->get();
+
+        return view('home', compact('vendas', 'vendedores'));
     }
 
     public function test() {

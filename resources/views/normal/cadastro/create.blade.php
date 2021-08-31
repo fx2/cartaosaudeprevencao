@@ -362,6 +362,7 @@
               value: @json($value),
               qtd_vidas: $('#qtd_vidas').val(),
               firstPayDayDate: today_date,
+              vendedor_id:  $('#vendedor_id').val(),
               mainPaymentMethodId: 'creditcard'
             },
 
@@ -507,6 +508,7 @@
               planMyId: @json($planMyId),
               nomePlano: @json($nomePlano),
               value: @json($value),
+              vendedor_id:  $('#vendedor_id').val(),
               qtd_vidas: $('#qtd_vidas').val(),
               firstPayDayDate: today_date,
               mainPaymentMethodId: 'boleto'
