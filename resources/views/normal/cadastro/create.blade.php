@@ -15,8 +15,8 @@
                 </div>
                 <div class="row">
                   <strong class="mt-2 mb-2">Dados Pessoais</strong>
-                  <div class="col-xs-12 col-sm-12 col-md-12" style="">
-                      <input class="field-form" type="email" autocomplete="off" name="users[email]" id="email" placeholder="* E-mail" required="required" />
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <input class="field-form" type="text" autocomplete="off" name="users[name]" id="name" placeholder="* Nome do contato" required="required" />
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
                       <input class="field-form" type="text" autocomplete="off" name="users[document]" id="document" placeholder="* CPF" required="required" />
@@ -24,9 +24,11 @@
                   <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
                       <input class="field-form" type="text" autocomplete="off" name="enderecos[telefone1]" id="telefone" placeholder="* Telefone (Ex: 11 999999999)" required="required" />
                   </div>
+
                   <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
-                      <input class="field-form" type="text" autocomplete="off" name="users[name]" id="name" placeholder="* Nome do contato" required="required" />
+                    <input class="field-form" type="email" autocomplete="off" name="users[email]" id="email" placeholder="* E-mail" required="required" />
                   </div>
+                
                   <div class="col-xs-12 col-sm-12 col-md-12" style="margin-top: 20px;">
                       <input class="field-form" type="text" autocomplete="off" name="empresas[name]" id="empresa" placeholder="Nome da empresa (NÃO É OBRIGATÓRIO)" />
                   </div>
@@ -68,6 +70,27 @@
                           </div>
                       </div>
                   </div>
+
+				<strong class="mt-5 mb-1">Vendedor</strong>
+				
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<input type="radio" name="FlgPontua" value="Nao" checked><label for="">Não</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<input type="radio" name="FlgPontua" value="Sim"><label for="">Sim</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 camposExtras" style="display:none">
+					<div class="form-group">
+						<label>Selecione o vendedor</label>
+						<select  class="form-control" name="planosSaude[vendedor_id]" id="vendedor_id">
+							<option selected value="">Selecione</option>
+							@foreach($vendedores as $v)
+								<option value="{{ $v->id }}">{{ $v->name }}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+
 
 				  <strong class="mt-5 mb-1">Pagamento</strong>
 
@@ -123,7 +146,7 @@
 						  </div>
 						  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 							<div class="card-body">
-                <input type="button" name="btn-enviar-boleto" class="btn btn-success btn-enviar-boleto" id="btn-enviar-boleto" value="Gerar boleto" />                
+                				<input type="button" name="btn-enviar-boleto" class="btn btn-success btn-enviar-boleto" id="btn-enviar-boleto" value="Gerar boleto" />                
 							</div>
 						  </div>
 						</div> 
@@ -306,7 +329,7 @@
 
 
   async function store(response){
-    var json_response = JSON.parse(response);
+    // var json_response = JSON.parse(response);
     var data = new Date();
     var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
     // console.log(json_response)
@@ -315,8 +338,8 @@
         url: "{{ route('campanha.store') }}",
         data: {
             _token: '{{csrf_token()}}',
-            access_token: json_response.access_token,
-            token_type: json_response.token_type,
+            // access_token: json_response.access_token,
+            // token_type: json_response.token_type,
 
             users: {
               email: $('#email').val(),
@@ -339,6 +362,7 @@
               value: @json($value),
               qtd_vidas: $('#qtd_vidas').val(),
               firstPayDayDate: today_date,
+              vendedor_id:  $('#vendedor_id').val(),
               mainPaymentMethodId: 'creditcard'
             },
 
@@ -453,7 +477,7 @@
       });
   });
   async function storeBoleto(response){
-    var json_response = JSON.parse(response);
+    // var json_response = JSON.parse(response);
     var data = new Date();
     var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
     // console.log(json_response)
@@ -462,8 +486,8 @@
         url: "{{ route('campanha-boleto') }}",
         data: {
             _token: '{{csrf_token()}}',
-            access_token: json_response.access_token,
-            token_type: json_response.token_type,
+            // access_token: json_response.access_token,
+            // token_type: json_response.token_type,
 
             users: {
               email: $('#email').val(),
@@ -484,6 +508,7 @@
               planMyId: @json($planMyId),
               nomePlano: @json($nomePlano),
               value: @json($value),
+              vendedor_id:  $('#vendedor_id').val(),
               qtd_vidas: $('#qtd_vidas').val(),
               firstPayDayDate: today_date,
               mainPaymentMethodId: 'boleto'
@@ -556,10 +581,6 @@
   
 
   	$('#myModal').modal('show');
-
-	$('input[type=radio]').click(function() {
-		alert($(this).val());
-	});
 
   function validarEmail(email){
     return /^[\w+.]+@\w+\.\w{2,}(?:\.\w{2})?$/.test(email)
@@ -1080,5 +1101,15 @@
 
     return true;
   }
+  	$(document).ready(function(){
+		$('input[name="FlgPontua"]').change(function () {
+			if ($('input[name="FlgPontua"]:checked').val() === "Sim") {
+				$('.camposExtras').show();
+			} else {
+				$('.camposExtras').hide();
+				$('#vendedor_id').val('');
+			}
+		});
+	});
 </script>
 @endpush

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Normal;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pricing;
+use App\Models\Vendedor;
 use App\Models\User;
 use App\Traits\CrudControllerTrait;
 use GuzzleHttp\Client;
@@ -23,8 +24,9 @@ class CampanhaController extends Controller
     public function create(Request $request)    
     {
         $plano = Pricing::find($request->plano);
+        $vendedores = Vendedor::select('vendedores.id', 'users.name')->join('users', 'users.id', 'vendedores.user_id')->get();
 
-        return view('normal.cadastro.create', ['planMyId' => $plano->plainMyId, 'nomePlano' => $plano->title, 'value' => $plano->price]);
+        return view('normal.cadastro.create', ['planMyId' => $plano->plainMyId, 'nomePlano' => $plano->title, 'value' => $plano->price, 'vendedores' => $vendedores]);
     }
 
     public function show($id)

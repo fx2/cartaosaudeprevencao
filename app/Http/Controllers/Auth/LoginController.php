@@ -63,10 +63,7 @@ class LoginController extends Controller
         })
         ->first();
 
-        if (isset($user->type)) {
-            if ($user->type != 'admin') 
-                return redirect('login')->with('status', 'Sem autorização para acessar o sistema');    
-        } else {
+        if (!isset($user->type)) {  
             return redirect('login')->with('status', 'Sem autorização para acessar o sistema');    
         }
 

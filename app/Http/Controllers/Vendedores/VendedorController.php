@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Vendedor;
 use App\Models\User;
 use App\Http\Requests\StoreUpdateVendedor;
+use App\Http\Requests\StoreVendedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -56,7 +57,7 @@ class VendedorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUpdateVendedor $request)
+    public function store(StoreVendedor $request)
     {
         $request['password']= Hash::make('alterar123');
 
@@ -146,23 +147,17 @@ class VendedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function deletar($id)
+    public function deletar(Request $request)
     {
         $vendedor = $this->repository
-                        ->where('id', $id)
+                        ->where('id', $request->id)
                         ->first();
 
         if (!$vendedor)
             return redirect()->back();
 
-        if ($vendedor->count() > 0) {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Erro ao deletar vendedor');
-        }
-
         $vendedor->delete();
 
-        return redirect()->route('vendedores.index');
+        return 1;
     }
 }

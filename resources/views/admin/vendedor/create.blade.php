@@ -1,9 +1,9 @@
-@extends('adminlte::page')
+@extends('layouts.template')
 
-@section('title', 'Cadastrar Novo Vendedor')
+@section('title', 'Cadastrar novo vendedor')
 
 @section('content_header')
-    <h1>Cadastrar Novo Vendedor</h1>
+
 @stop
 
 @section('content')

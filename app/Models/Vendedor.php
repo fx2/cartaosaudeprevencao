@@ -14,11 +14,4 @@ class Vendedor extends Model
 
     protected $fillable = ['id', 'user_id', 'created_at', 'updated_at', 'deleted_at'];
 
-    public function search($filter = null)
-    {
-        $results = $this->user()->where('name', 'LIKE', "%{$filter}%")
-                        ->paginate();
-
-        return $results;
-    }
 }

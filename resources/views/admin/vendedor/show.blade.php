@@ -1,9 +1,9 @@
-@extends('adminlte::page')
+@extends('layouts.template')
 
-@section('title', "Detalhes do vendedor {$vendedor->name}")
+@section('title', 'Detalhes do vendedor')
 
 @section('content_header')
-    <h1>Detalhes do vendedor <b>{{ $vendedor->name }}</b></h1>
+
 @stop
 
 @section('content')
@@ -27,6 +27,7 @@
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O VENDEDOR {{ $vendedor->name }}</button>
+                <a href="{{ route('vendedores.index') }}" type="button" class="btn btn-warning">Voltar</a>
             </form>
         </div>
     </div>
