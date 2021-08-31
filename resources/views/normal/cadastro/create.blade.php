@@ -329,7 +329,7 @@
 
 
   async function store(response){
-    // var json_response = JSON.parse(response);
+    var json_response = JSON.parse(response);
     var data = new Date();
     var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
     // console.log(json_response)
@@ -338,8 +338,8 @@
         url: "{{ route('campanha.store') }}",
         data: {
             _token: '{{csrf_token()}}',
-            // access_token: json_response.access_token,
-            // token_type: json_response.token_type,
+            access_token: json_response.access_token,
+            token_type: json_response.token_type,
 
             users: {
               email: $('#email').val(),
@@ -362,8 +362,11 @@
               value: @json($value),
               qtd_vidas: $('#qtd_vidas').val(),
               firstPayDayDate: today_date,
-              vendedor_id:  $('#vendedor_id').val(),
               mainPaymentMethodId: 'creditcard'
+            },
+
+            vendedor: {
+              vendedor_id:  $('#vendedor_id').val()
             },
 
             enderecos: {
@@ -477,7 +480,7 @@
       });
   });
   async function storeBoleto(response){
-    // var json_response = JSON.parse(response);
+    var json_response = JSON.parse(response);
     var data = new Date();
     var today_date = data.getFullYear() + '-' + (data.getMonth() + 1) + '-' + data.getDate()
     // console.log(json_response)
@@ -486,8 +489,8 @@
         url: "{{ route('campanha-boleto') }}",
         data: {
             _token: '{{csrf_token()}}',
-            // access_token: json_response.access_token,
-            // token_type: json_response.token_type,
+            access_token: json_response.access_token,
+            token_type: json_response.token_type,
 
             users: {
               email: $('#email').val(),
@@ -508,10 +511,13 @@
               planMyId: @json($planMyId),
               nomePlano: @json($nomePlano),
               value: @json($value),
-              vendedor_id:  $('#vendedor_id').val(),
               qtd_vidas: $('#qtd_vidas').val(),
               firstPayDayDate: today_date,
               mainPaymentMethodId: 'boleto'
+            },
+
+            vendedor: {
+              vendedor_id:  $('#vendedor_id').val()
             },
 
             enderecos: {

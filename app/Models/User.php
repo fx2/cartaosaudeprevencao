@@ -215,7 +215,7 @@ class User extends Authenticatable
         $galaxy = json_decode($gal, true);
     
         if (!isset($galaxy['Subscription']))
-            return 'chave_igual';
+            return $galaxy;
 
         $useragain = User::where('id', $user->id)->first();
         $useragain->pay_customer = $galaxy['Subscription']['Customer']['myId'];
@@ -235,6 +235,12 @@ class User extends Authenticatable
         $cartaoCredito['holder'] = $request->all()['cartao']['cartao_credito_holder'];
         $cartaoCredito['expiresAt'] = $request->all()['cartao']['cartao_credito_expiresAt'];
         $cartaoCredito['cvv'] = $request->all()['cartao']['cartao_credito_cvv'];
+
+        $price = Pricing::where('plainMyId', $request->planosSaudes['planMyId'])->first();
+        $vendas = Vendas::create([
+            'plans_id' => $price->id,
+            'vendedor_id' => $request->vendedor['vendedor_id'] ?? null
+        ]);
 
         $user->paymentMethodCreditcards()->create($cartaoCredito);
 
@@ -292,6 +298,12 @@ class User extends Authenticatable
         $boletos['discont_type'] = '';
         $boletos['discont_value'] = 0;
 
+        $price = Pricing::where('plainMyId', $request->planosSaudes['planMyId'])->first();
+        $vendas = Vendas::create([
+            'plans_id' => $price->id,
+            'vendedor_id' => $request->vendedor['vendedor_id'] ?? null
+        ]);
+
         $user->paymentMethodBoletos()->create($boletos);
 
         $user->telefones()->create($request->all()['telefones']);
@@ -314,7 +326,7 @@ class User extends Authenticatable
         $phone = removeSymbols($request['telefones']['telefone'], ['-', '(', ')', ' ']);
         $myArr = array(
             "myId" => config('constants.pay_request') . $user->id,
-            "planMyId" => env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611acd109ea912.57521508",
+            "planMyId" => env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-602526be3d5cfkass.43389564",
             "firstPayDayDate" => date('Y-m-d'),
             "mainPaymentMethodId" => "creditcard",
             "Customer" => array(
