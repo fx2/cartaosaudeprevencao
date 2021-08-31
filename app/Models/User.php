@@ -267,10 +267,9 @@ class User extends Authenticatable
 
         $boleto = $this->getTokenGalaxPayBoleto($request);
         $bol = json_decode($boleto, true);
-        return $bol;
         
         if (!isset($bol['Subscription']))
-            return 'chave_igual';
+            return $bol;
 
         $useragain = User::where('id', $user->id)->first();
         $useragain->pay_customer = $bol['Subscription']['Customer']['myId'];
