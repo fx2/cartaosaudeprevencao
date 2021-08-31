@@ -73,7 +73,7 @@
         @include('layouts.template.sidebar')
         <div class="page-container">
             <div class="header navbar">
-                <div class="header-container">
+                <div class="header-container" style="background-color: lightgreen">
                     <ul class="nav-left">
                         <li><a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="fas fa-bars"></i></a></li>
                         <li class="search-input">
