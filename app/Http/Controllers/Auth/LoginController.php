@@ -80,4 +80,9 @@ class LoginController extends Controller
             return redirect('login')->with('status', 'Usuário incorreto');    
         }
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 }
