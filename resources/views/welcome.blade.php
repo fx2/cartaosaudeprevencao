@@ -293,7 +293,7 @@
 						    </div>
 						    <div class="collapse" id="collapseFour" role="tabpanel" aria-labelledby="headingTwo">
 						      <div class="card-body py-3 px-0">
-						      	<p>Você também vai receber acesso a descontos exclusivos a mais de 10 mil locais de compras e entreternimento</p>
+						      	<p>Você também vai receber acesso a descontos exclusivos a mais de 10 mil locais de compras e entretenimento</p>
 						      </div>
 						    </div>
 						  </div>

@@ -31,7 +31,7 @@
                                         <ul class="list-unstyled">
                               <li><a href="#saude" class="py-1 d-block">Saúde</a></li>
                               <li><a href="#saude" class="py-1 d-block">Compras</a></li>
-                              <li><a href="#saude" class="py-1 d-block">Entreternimento </a></li>
+                              <li><a href="#saude" class="py-1 d-block">Entretenimento </a></li>
                               <li><a href="#saude" class="py-1 d-block">Filmes</a></li>
                             </ul>
                                     </div>

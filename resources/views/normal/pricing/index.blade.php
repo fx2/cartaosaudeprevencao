@@ -41,7 +41,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="price-table active top60">
                         <h3 class="bottom20 darkcolor">Prata</h3>
-                        <p>Cobertura em todos os atendimentos da clínica filiada + Entreternimento</p>
+                        <p>Cobertura em todos os atendimentos da clínica filiada + Entretenimento</p>
                         <div class="ammount">
                         <h2 class="defaultcolor"><i class="fa fa"></i> 59.99 <span class="dur">/ mês</span></h2>
                         </div>
@@ -51,7 +51,7 @@
                         <li><span>Fonoaudiologo</span></li>
                         <li><span>Ultrassom</span></li>
                         <li><span>Podologis</span></li>
-                        <li><span>+ Entreternimento Kids</span></li>
+                        <li><span>+ Entretenimento Kids</span></li>
                         <li><span>Paramount</span></li>
                         </ul>
                         <div class="clearfix"></div>
