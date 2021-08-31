@@ -23,11 +23,11 @@ Route::get('/site', function () {
 
 Auth::routes(['register' => false]);
 
-Route::prefix('admin')->group(function () {
-    Route::resource('editar-cadastro', App\Http\Controllers\AlterarCadastro\AlterarCadastroController::class);
-    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::post('vendedores/deletar', [App\Http\Controllers\Vendedores\VendedorController::class, 'deletar'])->name('vendedores.deletar');
-    Route::resource('vendedores', App\Http\Controllers\Vendedores\VendedorController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('admin/editar-cadastro', App\Http\Controllers\AlterarCadastro\AlterarCadastroController::class);
+    Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('admin/vendedores/deletar', [App\Http\Controllers\Vendedores\VendedorController::class, 'deletar'])->name('vendedores.deletar');
+    Route::resource('admin/vendedores', App\Http\Controllers\Vendedores\VendedorController::class);
 });
 
 
