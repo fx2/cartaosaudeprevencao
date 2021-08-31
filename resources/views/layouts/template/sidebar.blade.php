@@ -3,7 +3,7 @@
         <div class="sidebar-logo" style="background-color: lightgreen">
             <div class="peers ai-c fxw-nw">
                 <div class="peer peer-greed">
-                    <a class="sidebar-link td-n" href="{{ url('admin') }}">
+                    <a class="sidebar-link td-n" href="{{ url('admin/home') }}">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
                                 <div class="logo"><img height="50px" src="" alt=""></div>

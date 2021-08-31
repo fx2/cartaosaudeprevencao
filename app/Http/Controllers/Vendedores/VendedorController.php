@@ -60,6 +60,7 @@ class VendedorController extends Controller
     public function store(StoreVendedor $request)
     {
         $request['password']= Hash::make('alterar123');
+        $request['type']= User::TYPE['VENDEDOR'];
 
         $user = User::create($request->all());
 

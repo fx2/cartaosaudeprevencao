@@ -15,6 +15,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
+    const TYPE = ['VENDEDOR' => 'vendedor'];
+    
     protected $primaryKey = 'id';
 
     /**
