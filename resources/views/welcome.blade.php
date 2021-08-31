@@ -59,7 +59,7 @@
 	        	<li class="nav-item"><a href="#planos" class="nav-link">Planos</a></li>
 	          <li class="nav-item"><a href="#" class="nav-link">Benefícios</a></li>
 			  <li class="nav-item"><a href="../form_sind.html" target="_blank" class="nav-link">Sindicato</a></li>
-	          <li class="nav-item"><a href="#" class="nav-link">Aréa do Cliente</a></li>
+	          <li class="nav-item"><a href="#" class="nav-link">Área do Cliente</a></li>
 	          <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
 	          <li class="nav-item"><a href="https://cartaomasterclin.com.br/usuarios/validar-cartao" target="_blank" class="nav-link">MasterClin</a></li>
 	        </ul>
@@ -396,7 +396,7 @@
 					<div class="blockterceiro-7">
 						<div class="text-center">
 							<span style="margin-bottom: 10px;color: #1ba12d;font-size: 16px;font-weight: 600;text-transform: uppercase;">Prata</span>
-							<span class="price"><sup>R$</sup> <span class="number">59,00</span> <sub>/mês</sub></span>
+							<span class="price"><sup>R$</sup> <span class="number">59,99</span> <sub>/mês</sub></span>
 							
 							<ul class="pricing-text mb-5 text-left">
 								<li><span class="fa fa-check mr-2"></span>Acupuntura  </li>
