@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-md-0 mb-4">
                         <h2 class="footer-heading">Cartão Saúde Prevenção</h2>
-                        <p>Reunimos em um único Cartão de Descontos a Saúde, Educação, Entretenimento, entre outros diversos segmentos. Buscamos a disponibilização de descontos e benefícios em todas as necessidades possíveis.
+                        <p>Reunimos em um único Cartão de Desconto, saúde, educação, entretenimento, entre outros diversos segmentos. Buscamos a disponibilidade de descontos e benefícios em todas às suas necessidades.
 .</p>
                         <ul class="ftco-footer-social p-0">
                 <li class="ftco-animate"><a href="https://www.facebook.com/cartaosaudeprevencao" target="blank" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>

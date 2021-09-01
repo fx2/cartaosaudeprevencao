@@ -13,7 +13,7 @@
                     <div class="heading-title">
                         <span>Seu Cartão de Saúde</span>
                         <h2 class="darkcolor bottom30">Peça aqui o seu</h2>
-                        <p>Reunimos em um único Cartão de Descontos a Saúde, Educação, Entretenimento, entre outros diversos segmentos. Buscamos a disponibilização de descontos e benefícios em todas as necessidades possíveis.</p>
+                        <p>Reunimos em um único Cartão de Desconto, saúde, educação, entretenimento, entre outros diversos segmentos. Buscamos a disponibilidade de descontos e benefícios em todas às suas necessidades.</p>
                     </div>
                 </div>
             </div>

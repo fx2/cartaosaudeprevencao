@@ -112,7 +112,7 @@
     					<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tax"></span></div>
     					<div class="text pl-4">
     						<h4>Descontos na Saúde, Educação, Lazer e outros</h4>
-    						<p>Reunimos em um único Cartão de Descontos a Saúde, Educação, Entretenimento.</p>						
+    						<p>Reunimos em um único Cartão de Desconto, Saúde, Educação, Entretenimento.</p>						
     					</div>
     				</div>
 
