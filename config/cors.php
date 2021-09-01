@@ -31,7 +31,7 @@ return [
     /*
      * Matches the request origin. `['*']` allows all origins. Wildcards can be used, eg `*.mydomain.com`
      */
-    'allowed_origins' => ['http://www.cartaosaudeprevencao.com.br'],
+    'allowed_origins' => ['https://www.cartaosaudeprevencao.com.br/fonts/flaticon/font/Flaticon.ttf'],
 
     /*
      * Patterns that can be used with `preg_match` to match the origin.
