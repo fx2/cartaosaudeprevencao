@@ -21,10 +21,10 @@
 
     <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('css/loading.css') }}"> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="stylesheet" href="{{ asset('css/loading.css') }}">
     <style>
         .botaoprimeiro {
             position: relative;
