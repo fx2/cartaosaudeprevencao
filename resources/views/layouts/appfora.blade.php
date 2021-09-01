@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Cartão Saúde Prevenção</title>
     <link href="images/" rel="icon">
-    <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/green.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
 
-    {{-- <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}"> --}}
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 
