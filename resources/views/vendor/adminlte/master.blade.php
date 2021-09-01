@@ -26,7 +26,7 @@
 
     <link rel="icon" type="image/png" href="{{ url('imgs/favicon.png') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/custom-dash.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/custom-dash.css') }}"> --}}
 
     @stack('scripts-header')
 </head>
