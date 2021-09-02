@@ -7,7 +7,8 @@ $uniqueNumber = rand(1000000000, 9999999999);
 $galaxId = env('APP_ENV') === 'production' ? "16435" : "5473" ;
 $galaxHash = env('APP_ENV') === 'production' ? "OfGg7iE05bWlWeO0GoW1W96xI4L10i28DeAcX0Mw" : "83Mw5u8988Qj6fZqS4Z8K7LzOo1j28S706R0BeFe" ;
 $galaxUrl = env('APP_ENV') === 'production' ? "https://api.galaxpay.com.br/v2/" : "https://api.sandbox.cloud.galaxpay.com.br/v2/" ;
-
+$baseUrl = env('APP_ENV') === 'production' ? "MTY0MzU6T2ZHZzdpRTA1YldsV2VPMEdvVzFXOTZ4STRMMTBpMjhEZUFjWDBNdw==" : "NTQ3Mzo4M013NXU4OTg4UWo2ZlpxUzRaOEs3THpPbzFqMjhTNzA2UjBCZUZl" ;
+ 
 return [
     'pay_request' => 'pay-request-' . date("d-m-Y") . '-' . $uniqueNumber,
     'pay_customer' => 'pay-customer-' . date("d-m-Y") . '-' . $uniqueNumber,

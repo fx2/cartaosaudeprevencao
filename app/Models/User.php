@@ -232,6 +232,7 @@ class User extends Authenticatable
         $planosSaudes['planGalaxPayId'] = $galaxy['Subscription']['planGalaxPayId'];
         
         $user->planosSaudes()->create($planosSaudes);
+        $planosaude = PlanosSaude::where('user_id', $user->id)->first();
         
         $cartaoCredito['pay_creditcard'] = $res['PaymentMethodCreditCard']['Card']['myId'];
         $cartaoCredito['number'] = $request->all()['cartao']['cartao_credito_number'];
@@ -239,10 +240,13 @@ class User extends Authenticatable
         $cartaoCredito['expiresAt'] = $request->all()['cartao']['cartao_credito_expiresAt'];
         $cartaoCredito['cvv'] = $request->all()['cartao']['cartao_credito_cvv'];
 
+        
+
         $price = Pricing::where('plainMyId', $request->planosSaudes['planMyId'])->first();
         $vendas = Vendas::create([
             'plans_id' => $price->id,
-            'vendedor_id' => $request->vendedor['vendedor_id'] ?? null
+            'vendedor_id' => $request->vendedor['vendedor_id'] ?? null,
+            'planos_saude_id' => $planosaude->id
         ]);
 
         // $user->paymentMethodCreditcards()->create($cartaoCredito);
@@ -293,7 +297,7 @@ class User extends Authenticatable
         $planosSaudes['planGalaxPayId'] = $bol['Subscription']['planGalaxPayId'];
         
         $user->planosSaudes()->create($planosSaudes);
-        
+        $planosaude = PlanosSaude::where('user_id', $user->id)->first();
         $boletos['fine'] = 100;
         $boletos['interest'] = 200;
         $boletos['instructions'] = 'teste';
@@ -305,7 +309,8 @@ class User extends Authenticatable
         $price = Pricing::where('plainMyId', $request->planosSaudes['planMyId'])->first();
         $vendas = Vendas::create([
             'plans_id' => $price->id,
-            'vendedor_id' => $request->vendedor['vendedor_id'] ?? null
+            'vendedor_id' => $request->vendedor['vendedor_id'] ?? null,
+            'planos_saude_id' => $planosaude->id
         ]);
 
         $user->paymentMethodBoletos()->create($boletos);
@@ -385,7 +390,7 @@ class User extends Authenticatable
         $phone = removeSymbols($request['telefones']['telefone'], ['-', '(', ')', ' ']);
         $myArr = array(
             "myId" => config('constants.pay_request') . $user->id,
-            "planMyId" => env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-611a764f0fe594.10589875",
+            "planMyId" => env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-602526be3d5cfkass.43389564",
             "firstPayDayDate" => date('Y-m-d'),
             "mainPaymentMethodId" => "boleto",
             "Customer" => array(

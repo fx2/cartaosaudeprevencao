@@ -12,6 +12,6 @@ class Vendas extends Model
 
     protected $table = 'vendas';
 
-    protected $fillable = ['id','user_id', 'plans_id', 'vendedor_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id','user_id', 'planos_saude_id', 'plans_id', 'vendedor_id', 'created_at', 'updated_at', 'deleted_at'];
 
 }
