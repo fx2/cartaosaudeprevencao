@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Vendedores')
+@section('title', 'Clientes')
 
 @section('content_header')
 
@@ -9,10 +9,10 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h1>Vendedores <a href="{{ route('vendedores.create') }}" class="btn btn-dark">Adicionar</a></h1>
+            <h1>Clientes</h1>
         </div>
         <div class="card-body">
-            <table id="vendedor" class="table table-condensed">
+            <table id="cliente" class="table table-condensed">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -23,25 +23,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($vendedores as $v)
+                    @foreach ($clientes as $c)
                         <tr>
                             <td>
-                                {{ $v->name }}
+                                {{ $c->name }}
                             </td>
                             <td>
-                                {{ $v->email }}
+                                {{ $c->email }}
                             </td>
                             <td>
-                                {{ $v->document }}
+                                {{ $c->document }}
                             </td>
-                            <td data-order="{{ date('Y/m/d H:m:s', strtotime($v->created_at)) }}">
-                                {{ date('d/m/Y', strtotime($v->created_at)) }}
+                            <td data-order="{{ date('Y/m/d H:m:s', strtotime($c->created_at)) }}">
+                                {{ date('d/m/Y', strtotime($c->created_at)) }}
                             </td>
                             <td style="width=10px;">
                                 <div class="row">
-                                    <a href="{{ route('vendedores.edit', $v->id) }}" class="btn btn-info mr-1">Editar</a>
-                                    <a href="{{ route('vendedores.show', $v->id) }}" class="btn btn-warning mr-1">Ver</a>
-                                    <button type="button" class="btn btn-danger mr-1 btnDeletar" data-id="{{ $v->id }}" >Deletar</i></button>
+                                    <a href="{{ route('clientes.edit', $c->id) }}" class="btn btn-info mr-1">Editar</a>
+                                    <a href="{{ route('clientes.show', $c->id) }}" class="btn btn-warning mr-1">Ver</a>
+                                    <button type="button" class="btn btn-danger mr-1 btnDeletar" data-id="{{ $c->id }}" >Deletar</i></button>
                                 </div>
                             </td>
                         </tr>
@@ -55,10 +55,12 @@
 @stop
 
 @section('javascript')
+<script src="{{asset('js/sweetalert.min.js')}}"></script>
     <script>
-        tblVendedor = $("#vendedor").DataTable({
+        $("#cliente").DataTable({
             rowReorder: true,
             lengthMenu:[25,50,100],
+            searching: true,
             columnDefs: [
                 { orderable: true, className: 'reorder', targets: 3},
                 { orderable: false },
@@ -90,8 +92,8 @@
             }
         });
 
-        $(document).ready(function () {  
-            $('#vendedor tbody').on('click', '.btnDeletar', function () {
+        $(document).ready(function () { 
+            $('#cliente tbody').on('click', '.btnDeletar', function () {
                 var _this = this;
                 id = $(_this).attr('data-id');
                 swal({
@@ -105,7 +107,7 @@
                 }).then(function (result) {
                     if (result) {
                         $.ajax({
-                            url: "{{ route('vendedores.deletar', "+id+") }}",
+                            url: "{{ route('clientes.deletar', "+id+") }}",
                             type: 'POST',
                             data: {
                                 "_token": "{{ csrf_token() }}",

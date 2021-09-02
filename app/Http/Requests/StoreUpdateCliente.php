@@ -4,9 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\User;
-use App\Models\Vendedor;
+use Illuminate\Validation\Rule;
 
-class StoreVendedor extends FormRequest
+class StoreUpdateCliente extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,14 @@ class StoreVendedor extends FormRequest
      */
     public function rules()
     {
+        $id = $this->segment(3);
+        $user = User::where('id', $id)->first();
+
         return [
             'name' => "required|max:255",
-            'email' => "nullable|email|max:255|unique:users",
+            'email' => "nullable|email|max:255|unique:users,id, $user->id",
             'document' => "required|min:11|max:11",
+            'password' => "nullable",
             'telefone' => "nullable",
             'zipCode' => "nullable",
             'state' => "nullable",
@@ -37,6 +41,8 @@ class StoreVendedor extends FormRequest
             'street' => "nullable",
             'number' => "nullable",
             'complement' => "nullable",
+            'idendereco' => "nullable",
+            'idtelefone' => "nullable"
         ];
     }
 }

@@ -23,6 +23,8 @@
             <li class="nav-item"><a class="sidebar-link" href="{{ url('admin/home') }}"><span class="icon-holder"><i class="c-green-500 fas fa-home"></i> </span><span class="title">Home</span></a></li>
             @can('isAdmin')
                 <li class="nav-item"><a class="sidebar-link" href="{{ url('admin/vendedores') }}"><span class="icon-holder"><i class="c-red-500 fas fa-users"></i> </span><span class="title">Vendedor</span></a></li>
+                <li class="nav-item"><a class="sidebar-link" href="{{ url('admin/clientes') }}"><span class="icon-holder"><i class="c-purple-500 fas fa-users"></i> </span><span class="title">Clientes</span></a></li>
+                <li class="nav-item"><a class="sidebar-link" href="{{ url('admin/vendas') }}"><span class="icon-holder"><i class="c-blue-500 fas fa-comment-dollar"></i> </span><span class="title">Vendas</span></a></li>
             @endcan
                     
             <li class="nav-item"><a class="sidebar-link" href="{{ route('editar-cadastro.edit', \Auth::user()->id) }}"><span class="icon-holder"><i class="c-yellow-500 fas fa-key"></i> </span><span class="title">Alterar cadastro</span></a></li>

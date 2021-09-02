@@ -1,46 +1,45 @@
 <?php
 
-namespace App\Http\Controllers\Vendedores;
+namespace App\Http\Controllers\Clientes;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vendedor;
 use App\Models\User;
+use App\Http\Requests\StoreUpdateCliente;
+use App\Http\Requests\StoreVendedor;
 use App\Models\Endereco;
 use App\Models\Telefone;
-use App\Http\Requests\StoreUpdateVendedor;
-use App\Http\Requests\StoreVendedor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class VendedorController extends Controller
+class ClientesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(Vendedor $vendedor)
+    public function __construct(User $cliente)
     {
-        $this->repository = $vendedor;
+        $this->repository = $cliente;
         $this->middleware('auth');
     }
 
     public function index()
     {
-        $vendedor = $this->repository
+        $cliente = $this->repository
                         ->select(
-                            'vendedores.id',
+                            'users.id',
                             'users.name',
                             'users.email',
                             'users.document',
                             'users.created_at'
                         )
-                        ->join('users', 'users.id', 'vendedores.user_id')
-                        ->latest('vendedores.created_at')
+                        ->latest('users.created_at')
                         ->get();
 
-        return view('admin.vendedor.index', [
-            'vendedores' => $vendedor,
+        return view('admin.cliente.index', [
+            'clientes' => $cliente,
         ]);
     }
 
@@ -51,7 +50,7 @@ class VendedorController extends Controller
      */
     public function create()
     {
-        return view('admin.vendedor.create');
+        // return view('admin.vendedor.create');
     }
 
     /**
@@ -62,27 +61,14 @@ class VendedorController extends Controller
      */
     public function store(StoreVendedor $request)
     {
-        $request['password']= Hash::make('alterar123');
-        $request['type']= User::TYPE['VENDEDOR'];
+        // $request['password']= Hash::make('alterar123');
+        // $request['type']= User::TYPE['VENDEDOR'];
 
-        $user = User::create($request->all());
-        
-        $endereco = Endereco::updateOrCreate(
-            [
-                'zipCode' => $request['zipCode'], 
-                'street' => $request['street'],
-                'number' => $request['number'],
-                'complement' => $request['complement'],
-                'neighborhood' => $request['neighborhood'],
-                'city' => $request['city'],
-                'state' => $request['state'],
-                'user_id' => $user->id
-            ],
-        );
+        // $user = User::create($request->all());
 
-        $this->repository->create(['user_id' => $user->id]);
+        // $this->repository->create(['user_id' => $user->id]);
 
-        return redirect()->route('vendedores.index');
+        // return redirect()->route('vendedores.index');
     }
 
     /**
@@ -93,9 +79,9 @@ class VendedorController extends Controller
      */
     public function show($id)
     {
-        $vendedor = $this->repository
+        $cliente = $this->repository
                         ->select(
-                            'vendedores.id',
+                            'users.id',
                             'users.name',
                             'users.email',
                             'users.document',
@@ -108,17 +94,16 @@ class VendedorController extends Controller
                             'enderecos.state',
                             'telefones.telefone'
                         )
-                        ->join('users', 'users.id', 'vendedores.user_id')
                         ->join('enderecos', 'enderecos.user_id', 'users.id')
                         ->join('telefones', 'telefones.user_id', 'users.id')
-                        ->where('vendedores.id', $id)
+                        ->where('users.id', $id)
                         ->first();
 
-        if (!$vendedor)
+        if (!$cliente)
             return redirect()->back();
 
-        return view('admin.vendedor.show', [
-            'vendedor' => $vendedor
+        return view('admin.cliente.show', [
+            'clientes' => $cliente
         ]);
     }
 
@@ -130,9 +115,9 @@ class VendedorController extends Controller
      */
     public function edit($id)
     {
-        $vendedor = $this->repository
+        $cliente = $this->repository
                         ->select(
-                            'vendedores.id',
+                            'users.id',
                             'users.name',
                             'users.email',
                             'users.document',
@@ -143,18 +128,19 @@ class VendedorController extends Controller
                             'enderecos.neighborhood',
                             'enderecos.city',
                             'enderecos.state',
-                            'telefones.telefone'
+                            'telefones.telefone',
+                            'telefones.id as idtelefone',
+                            'enderecos.id as idendereco'
                         )
-                        ->join('users', 'users.id', 'vendedores.user_id')
                         ->leftJoin('enderecos', 'enderecos.user_id', 'users.id')
                         ->leftJoin('telefones', 'telefones.user_id', 'users.id')
-                        ->where('vendedores.id', $id)
+                        ->where('users.id', $id)
                         ->first();
 
-        if (!$vendedor)
+        if (!$cliente)
             return redirect()->back();
 
-        return view('admin.vendedor.edit', compact('vendedor'));
+        return view('admin.cliente.edit', compact('cliente'));
     }
 
     /**
@@ -164,19 +150,19 @@ class VendedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreUpdateVendedor $request, $id)
+    public function update(StoreUpdateCliente $request, $id)
     {
         $data = $request->all();
-        $vendedor = $this->repository->where('id', $id)->first();
+        $cliente = $this->repository->where('id', $id)->first();
 
-        if (!$vendedor)
+        if (!$cliente)
             return redirect()->back();
 
-        $user = User::where('id', $vendedor->user_id)
-            ->update(['name' => $data['name'], 'document' => $data['document'], 'email' => $data['email']]);
-        
-  
+        $user = User::where('id', $id)
+            ->update(['name' => $data['name'], 'document' => $data['document'], 'email' => $data['email'], 'password' =>Hash::make($data['password'])]);
+            
         $endereco = Endereco::updateOrCreate(
+            ['id' => $data['idendereco']],
             [
                 'zipCode' => $data['zipCode'], 
                 'street' => $data['street'],
@@ -185,18 +171,19 @@ class VendedorController extends Controller
                 'neighborhood' => $data['neighborhood'],
                 'city' => $data['city'],
                 'state' => $data['state'],
-                'user_id' => $vendedor->user_id
+                'user_id' => $id
             ],
-        )->where('user_id', $vendedor->user_id);
+        )->where('user_id', $id);
 
         $telefone = Telefone::updateOrCreate(
+            ['id' => $data['idtelefone']],
             [
                 'telefone' => $data['telefone'], 
-                'user_id' => $vendedor->user_id
+                'user_id' => $id
             ],
-        )->where('user_id', $vendedor->user_id);
+        )->where('user_id', $id);
 
-        return redirect()->route('vendedores.index');
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -207,15 +194,14 @@ class VendedorController extends Controller
      */
     public function deletar(Request $request)
     {
-        $vendedor = $this->repository
+        $cliente = $this->repository
                         ->where('id', $request->id)
                         ->first();
 
-        if (!$vendedor)
+        if (!$cliente)
             return redirect()->back();
 
-        User::where('id', $vendedor->user_id)->delete();
-        $vendedor->delete();
+        $cliente->delete();
 
         return 1;
     }

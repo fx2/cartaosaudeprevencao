@@ -33,6 +33,14 @@ class StoreUpdateVendedor extends FormRequest
             'name' => "required|max:255",
             'email' => "nullable|email|max:255|unique:users,id, $user->id",
             'document' => "required|min:11|max:11",
+            'telefone' => "nullable",
+            'zipCode' => "nullable",
+            'state' => "nullable",
+            'city' => "nullable",
+            'neighborhood' => "nullable",
+            'street' => "nullable",
+            'number' => "nullable",
+            'complement' => "nullable",
         ];
     }
 }

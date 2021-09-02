@@ -66,6 +66,7 @@
     <link href="{{ asset('template/assets/jqueryui/jquery-ui.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('template/css/bootstrap-dataTable.css') }}">
     <link rel="stylesheet" href="{{ asset('template/css/dataTable-bootstrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="http://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}
 </head>
 
 <body class="app">
@@ -233,6 +234,9 @@
     <script src="{{ asset('template/js/moment.min.js') }}"></script>
     <script src="{{ asset('template/js/moment.js') }}"></script>
     <script src="{{ asset('template/js/jquery-mask.js') }}"></script>
+    <script src="http://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.24/sorting/date-de.js"></script>
+    <script src="{{asset('js/sweetalert.min.js')}}"></script>
 
     <script src="{{ asset('template/js/jquery-dataTables.min.js') }}"></script>
     <script src="{{ asset('template/js/dataTables-bootstrap4.min.js') }}"></script>

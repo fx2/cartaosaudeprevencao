@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Vendedores')
+@section('title', 'Vendas')
 
 @section('content_header')
 
@@ -9,39 +9,37 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h1>Vendedores <a href="{{ route('vendedores.create') }}" class="btn btn-dark">Adicionar</a></h1>
+            <h1>Vendas </h1>
         </div>
         <div class="card-body">
             <table id="vendedor" class="table table-condensed">
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>E-mail</th>
-                        <th>CPF</th>
+                        <th>Valor</th>
+                        <th>Quantidade vidas</th>
                         <th>Data criação</th>
                         <th width="270">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($vendedores as $v)
+                    @foreach ($vendas as $v)
                         <tr>
                             <td>
-                                {{ $v->name }}
+                                {{ $v->nomePlano }}
                             </td>
                             <td>
-                                {{ $v->email }}
+                                {{ $v->value }}
                             </td>
                             <td>
-                                {{ $v->document }}
+                                {{ $v->qtd_vidas }}
                             </td>
                             <td data-order="{{ date('Y/m/d H:m:s', strtotime($v->created_at)) }}">
                                 {{ date('d/m/Y', strtotime($v->created_at)) }}
                             </td>
                             <td style="width=10px;">
                                 <div class="row">
-                                    <a href="{{ route('vendedores.edit', $v->id) }}" class="btn btn-info mr-1">Editar</a>
-                                    <a href="{{ route('vendedores.show', $v->id) }}" class="btn btn-warning mr-1">Ver</a>
-                                    <button type="button" class="btn btn-danger mr-1 btnDeletar" data-id="{{ $v->id }}" >Deletar</i></button>
+                                    <a href="{{ route('vendas.show', $v->id) }}" class="btn btn-warning mr-1">Ver</a>
                                 </div>
                             </td>
                         </tr>

@@ -15,7 +15,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    const TYPE = ['VENDEDOR' => 'vendedor'];
+    const TYPE = ['VENDEDOR' => 'vendedor', 'CLIENTE' => 'cliente'];
     
     protected $primaryKey = 'id';
 
@@ -194,6 +194,7 @@ class User extends Authenticatable
     {
         $users = $request->all()['users'];
         $users['document'] = removeSymbols($users['document'], ['.', '-']);
+        $users['type'] = User::TYPE['CLIENTE'];
         $users['password'] = Hash::make($users['document']);
         $users['pay_customer'] = config('constants.pay_customer');
 
@@ -244,7 +245,7 @@ class User extends Authenticatable
             'vendedor_id' => $request->vendedor['vendedor_id'] ?? null
         ]);
 
-        $user->paymentMethodCreditcards()->create($cartaoCredito);
+        // $user->paymentMethodCreditcards()->create($cartaoCredito);
 
         $user->telefones()->create($request->all()['telefones']);
 
@@ -261,6 +262,7 @@ class User extends Authenticatable
     {   
         $users = $request->all()['users'];
         $users['document'] = removeSymbols($users['document'], ['.', '-']);
+        $users['type'] = User::TYPE['CLIENTE'];
         $users['password'] = Hash::make($users['document']);
         $users['pay_customer'] = config('constants.pay_customer');
 

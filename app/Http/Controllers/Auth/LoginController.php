@@ -69,7 +69,9 @@ class LoginController extends Controller
 
         if($user)
         {
+
             $eita = Hash::check($input['password'], $user->password);
+            // dd($eita);
             if ($eita) {
                 Auth::login($user);
                 return redirect()->route('home');

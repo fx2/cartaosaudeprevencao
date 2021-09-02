@@ -24,10 +24,15 @@ Route::get('/site', function () {
 Auth::routes(['register' => false]);
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'can:isAdmin'], function() {
+        Route::post('admin/vendedores/deletar', [App\Http\Controllers\Vendedores\VendedorController::class, 'deletar'])->name('vendedores.deletar');
+        Route::resource('admin/vendedores', App\Http\Controllers\Vendedores\VendedorController::class);
+        Route::post('admin/clientes/deletar', [App\Http\Controllers\Clientes\ClientesController::class, 'deletar'])->name('clientes.deletar');
+        Route::resource('admin/clientes', App\Http\Controllers\Clientes\ClientesController::class);
+        Route::resource('admin/vendas', App\Http\Controllers\Vendas\VendasController::class);
+    });
     Route::resource('admin/editar-cadastro', App\Http\Controllers\AlterarCadastro\AlterarCadastroController::class);
     Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::post('admin/vendedores/deletar', [App\Http\Controllers\Vendedores\VendedorController::class, 'deletar'])->name('vendedores.deletar');
-    Route::resource('admin/vendedores', App\Http\Controllers\Vendedores\VendedorController::class);
 });
 
 
