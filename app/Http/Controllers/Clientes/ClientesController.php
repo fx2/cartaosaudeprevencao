@@ -36,6 +36,7 @@ class ClientesController extends Controller
                             'users.created_at'
                         )
                         ->latest('users.created_at')
+                        ->where('type', 'cliente')
                         ->get();
 
         return view('admin.cliente.index', [
@@ -158,8 +159,14 @@ class ClientesController extends Controller
         if (!$cliente)
             return redirect()->back();
 
+        // dd($data);
         $user = User::where('id', $id)
-            ->update(['name' => $data['name'], 'document' => $data['document'], 'email' => $data['email'], 'password' =>Hash::make($data['password'])]);
+            ->update([
+                'name' => $data['name'], 
+                'document' => $data['document'], 
+                'email' => $data['email'], 
+                'password' =>Hash::make($data['password'])
+            ]);
             
         $endereco = Endereco::updateOrCreate(
             ['id' => $data['idendereco']],

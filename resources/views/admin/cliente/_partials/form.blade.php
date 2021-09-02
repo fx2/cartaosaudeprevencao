@@ -13,7 +13,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label>CPF:</label>
-                    <input type="text" name="document" class="form-control" placeholder="CPF:" maxlength="11" onkeypress="return onlynumber();" value="{{ $cliente->document ?? old('document') }}">
+                    <input type="text" name="document" class="form-control" placeholder="CPF:" minlength="11" maxlength="11" onkeypress="return onlynumber();" value="{{ $cliente->document ?? old('document') }}">
                 </div>
             </div>
             <div class="col-md-6">
