@@ -29,7 +29,7 @@
                                 {{ $v->nomePlano }}
                             </td>
                             <td>
-                                {{ $v->value }}
+                                R$ {{ substr_replace($v->value, ',', 2, 0) }}
                             </td>
                             <td>
                                 {{ $v->qtd_vidas }}

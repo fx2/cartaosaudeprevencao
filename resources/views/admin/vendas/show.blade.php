@@ -17,7 +17,7 @@
                     <strong>Quantidade vidas: </strong> {{ $vendas->qtd_vidas }}
                 </li>
                 <li>
-                    <strong>Valor: </strong> {{ $vendas->value }}
+                    <strong>Valor: </strong> R$ {{ substr_replace($vendas->value, ',', 2, 0) }}
                 </li>
                 @if ($vendas->vendedor)
                     <li>
