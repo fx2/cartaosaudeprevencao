@@ -34,8 +34,8 @@
                             <td>
                                 {{ $v->qtd_vidas }}
                             </td>
-                            <td data-order="{{ date('Y/m/d H:m:s', strtotime($v->created_at)) }}">
-                                {{ date('d/m/Y', strtotime($v->created_at)) }}
+                            <td data-order="{{ date('Y/m/d H:m:s', strtotime($v->data_compra)) }}">
+                                {{ date('d/m/Y', strtotime($v->data_compra)) }}
                             </td>
                             <td style="width=10px;">
                                 <div class="row">

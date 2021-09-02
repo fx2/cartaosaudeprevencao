@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Vendas;
 
 use App\Http\Controllers\Controller;
-use App\Models\Vendedor;
+use App\Models\Vendas;
 use App\Models\User;
 use App\Models\PlanosSaude;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class VendasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct(PlanosSaude $venda)
+    public function __construct(Vendas $venda)
     {
         $this->repository = $venda;
         $this->middleware('auth');
@@ -24,13 +24,14 @@ class VendasController extends Controller
     public function index()
     {
         $venda = $this->repository
-                        ->select(
-                            'planos_saudes.id',
-                            'planos_saudes.nomePlano',
-                            'planos_saudes.value',
-                            'planos_saudes.qtd_vidas',
-                            'planos_saudes.created_at'
+                        ->selectRaw(
+                            'vendas.id,
+                            planos_saudes.nomePlano,
+                            planos_saudes.value,
+                            planos_saudes.qtd_vidas,
+                            planos_saudes.created_at as data_compra'
                         )
+                        ->leftJoin('planos_saudes', 'planos_saudes.id', 'vendas.planos_saude_id')
                         ->latest('planos_saudes.created_at')
                         ->get();
 
@@ -69,28 +70,29 @@ class VendasController extends Controller
     public function show($id)
     {
         $venda = $this->repository
-                        ->select(
-                            'users.name',
-                            'users.email',
-                            'users.document',
-                            'planos_saudes.nomePlano',
-                            'planos_saudes.value',
-                            'planos_saudes.qtd_vidas'
+                        ->selectRaw(
+                            'planos_saudes.nomePlano,
+                            planos_saudes.value,
+                            planos_saudes.qtd_vidas,
+                            planos_saudes.created_at as data_compra,
+                            vendedor.name as vendedor,
+                            cliente.name as cliente,
+                            cliente.document,
+                            telefones.telefone'
                         )
-                        ->leftJoin('users', 'users.id', 'planos_saudes.user_id')
-                        // ->leftJoin('vendedores', 'vendedores.user_id', 'users.id')
-                        // ->leftJoin('users as vendedor', 'vendedor.id', 'vendedores.user_id')
-                        // ->leftJoin('vendas', 'vendas.vendedor_id', 'vendedores.id')
-                        ->where('users.id', $id)
+                        ->leftJoin('planos_saudes', 'planos_saudes.id', 'vendas.planos_saude_id')
+                        ->leftJoin('vendedores', 'vendedores.id', 'vendas.vendedor_id')
+                        ->leftJoin('users as vendedor', 'vendedor.id', 'vendedores.user_id')
+                        ->leftJoin('users as cliente', 'cliente.id', 'planos_saudes.user_id')
+                        ->leftJoin('telefones', 'telefones.user_id', 'cliente.id')
+                        ->where('planos_saudes.id', $id)
                         ->first();
 
-        dd($venda);
-
-        if (!$cliente)
+        if (!$venda)
             return redirect()->back();
 
-        return view('admin.cliente.show', [
-            'clientes' => $cliente
+        return view('admin.vendas.show', [
+            'vendas' => $venda
         ]);
     }
 
