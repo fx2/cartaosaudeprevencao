@@ -32,7 +32,7 @@ class VendasController extends Controller
                             planos_saudes.created_at as data_compra'
                         )
                         ->leftJoin('planos_saudes', 'planos_saudes.id', 'vendas.planos_saude_id')
-                        ->latest('planos_saudes.created_at')
+                        ->latest('vendas.created_at')
                         ->get();
 
         return view('admin.vendas.index', [
@@ -85,7 +85,7 @@ class VendasController extends Controller
                         ->leftJoin('users as vendedor', 'vendedor.id', 'vendedores.user_id')
                         ->leftJoin('users as cliente', 'cliente.id', 'planos_saudes.user_id')
                         ->leftJoin('telefones', 'telefones.user_id', 'cliente.id')
-                        ->where('planos_saudes.id', $id)
+                        ->where('vendas.id', $id)
                         ->first();
 
         if (!$venda)
