@@ -338,6 +338,7 @@ class User extends Authenticatable
             "planMyId" => env('APP_ENV') === 'production' ? $request['planosSaudes']['planMyId'] : "pay-602526be3d5cfkass.43389564",
             "firstPayDayDate" => date('Y-m-d'),
             "mainPaymentMethodId" => "creditcard",
+            "value" => $request['planosSaudes']['value'], 
             "Customer" => array(
                 "myId" => $user->pay_customer . $user->id,
                 "name" => $user->name,
