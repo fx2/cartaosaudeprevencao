@@ -63,15 +63,14 @@ class LoginController extends Controller
         })
         ->first();
 
-        if (!isset($user->type)) {  
+        if (!isset($user->type) || $user->type == 'cliente') {  
             return redirect('login')->with('status', 'Sem autorização para acessar o sistema');    
         }
 
         if($user)
         {
-
             $eita = Hash::check($input['password'], $user->password);
-            // dd($eita);
+
             if ($eita) {
                 Auth::login($user);
                 return redirect()->route('home');
