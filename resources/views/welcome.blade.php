@@ -355,6 +355,7 @@
 								<li><span class="fa fa-check mr-2"></span>Exames de Imagem  </li>
 								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para o titular </li>	
 								<li><span class="fa fa-check mr-2"></span>Cartão de desconto em todo Brasil </li>	                
+								<li><span class="fa fa-check mr-2"></span>Assistência 24 horas a veículos - Auto e Moto </li>	                
 							</ul>
 							<a href="{{ url('campanha/cadastrar?plano=1') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
 						</div>
@@ -386,6 +387,7 @@
 								<li><span class="fa fa-check mr-2"></span>1 APP de entretenimento  </li>
 								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para o Titular </li>
 								<li><span class="fa fa-check mr-2"></span>Cartão de desconto em todo Brasil </li>
+								<li><span class="fa fa-check mr-2"></span>Assistência 24 horas a veículos - Auto e Moto </li>
 							</ul>
 			
 							<a href="{{ url('campanha/cadastrar?plano=3') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
@@ -417,6 +419,7 @@
 								<li><span class="fa fa-check mr-2"></span>Auxílio Funeral para titular  </li>
 								<li><span class="fa fa-check mr-2"></span>4 APP Entretenimento </li>
 								<li><span class="fa fa-check mr-2"></span>Cartão de desconto em todo Brasil </li>
+								<li><span class="fa fa-check mr-2"></span>Assistência 24 horas a veículos - Auto e Moto </li>
 							</ul>
 
 							<a href="{{ url('campanha/cadastrar?plano=2') }}" target="_blank" class="btn btn-primary d-block px-2 py-3">Pedir Agora</a>
