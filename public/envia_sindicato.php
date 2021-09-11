@@ -1,6 +1,6 @@
 <?php
 // Adiciona o arquivo class.phpmailer.php - você deve especificar corretamente o caminho da pasta com o este arquivo.
-include 'mail/PHPMailerAutoload.php';
+include '../mail/PHPMailerAutoload.php';
 // include 'class.phpmailer.php';
 // Inicia a classe PHPMailer
 $mail = new PHPMailer();
@@ -86,11 +86,11 @@ $mail->ClearAllRecipients();
 // Exibe uma mensagem de resultado do envio (sucesso/erro)
 if ($enviado) {
   echo "E-mail enviado com sucesso!";
-  echo "<meta http-equiv='refresh' content='2;URL=index.html'>";
+  echo "<meta http-equiv='refresh' content='2;URL=/'>";
 } 
 
 else {
   echo "Não foi possível enviar o e-mail.";
   echo "<b>Detalhes do erro:</b> " . $mail->ErrorInfo;
-  echo "<meta http-equiv='refresh' content='5;URL=index.html'>";
+  echo "<meta http-equiv='refresh' content='5;URL=/'>";
 }
