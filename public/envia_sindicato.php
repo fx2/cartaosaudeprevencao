@@ -1,6 +1,6 @@
 <?php
 // Adiciona o arquivo class.phpmailer.php - você deve especificar corretamente o caminho da pasta com o este arquivo.
-include '../mail/PHPMailerAutoload.php';
+include 'mail/PHPMailerAutoload.php';
 // include 'class.phpmailer.php';
 // Inicia a classe PHPMailer
 $mail = new PHPMailer();
@@ -15,8 +15,9 @@ $mail->SMTPAutoTLS = false; // Define se, por padrão, será utilizado TLS - Man
 $mail->Username = 'suporte@comtidev.com.br'; // Conta de email existente e ativa em seu domínio //alterar
 $mail->Password = 'Com@ti0615'; // Senha da sua conta de email
 
+
 // Você pode habilitar esta opção caso tenha problemas. Assim pode identificar mensagens de erro. 
-// $mail->SMTPDebug = 2;
+$mail->SMTPDebug = 2;
 
 // Configurações de compatibilidade para autenticação em TLS 
 $mail->SMTPOptions = array( 
