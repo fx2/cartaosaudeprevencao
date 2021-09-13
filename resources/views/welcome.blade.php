@@ -57,7 +57,7 @@
 	        	<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
 	        	<li class="nav-item"><a href="#cartao" class="nav-link">Cartão</a></li>
 	        	<li class="nav-item"><a href="#planos" class="nav-link">Planos</a></li>
-	          <li class="nav-item"><a href="#" class="nav-link">Benefícios</a></li>
+	          {{-- <li class="nav-item"><a href="#" class="nav-link">Benefícios</a></li> --}}
 			  <li class="nav-item"><a href="public/form_sind.html" target="_blank" class="nav-link">Sindicato</a></li>
 	          <li class="nav-item"><a href="#" class="nav-link">Área do Cliente</a></li>
 	          <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
