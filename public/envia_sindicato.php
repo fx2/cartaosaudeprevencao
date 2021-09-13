@@ -17,7 +17,7 @@ $mail->Password = 'Com@ti0615'; // Senha da sua conta de email
 
 
 // Você pode habilitar esta opção caso tenha problemas. Assim pode identificar mensagens de erro. 
-$mail->SMTPDebug = 2;
+// $mail->SMTPDebug = 2;
 
 // Configurações de compatibilidade para autenticação em TLS 
 $mail->SMTPOptions = array( 
