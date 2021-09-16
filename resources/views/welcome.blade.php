@@ -59,7 +59,7 @@
 	        	<li class="nav-item"><a href="#planos" class="nav-link">Planos</a></li>
 	          {{-- <li class="nav-item"><a href="#" class="nav-link">Benefícios</a></li> --}}
 			  <li class="nav-item"><a href="public/form_sind.html" target="_blank" class="nav-link">Sindicato</a></li>
-	          <li class="nav-item"><a href="#" class="nav-link">Área do Cliente</a></li>
+	          {{-- <li class="nav-item"><a href="#" class="nav-link">Área do Cliente</a></li> --}}
 	          <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
 	          <li class="nav-item"><a href="https://cartaomasterclin.com.br/usuarios/validar-cartao" target="_blank" class="nav-link">Validador</a></li>
 	          <li class="nav-item"><a href="http://www.cartaosaudeprevencao.com.br/login" target="_blank" class="nav-link">Acesso painel</a></li>
